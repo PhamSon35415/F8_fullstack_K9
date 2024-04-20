@@ -1,0 +1,14 @@
+{
+    "folders": [
+		{
+			"path": "C:/Users/Admin/Documents/FPT poly/Ky2/html"
+		},
+		{
+			"path": ".."
+		}
+	],
+    "settings": {
+        "liveServer.settings.port": 5502,
+        "liveServer.settings.multiRootWorkspaceName": "html"
+    }
+}
