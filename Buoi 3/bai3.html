@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        input,
+        select {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background-color: aqua;
+            padding: 20px;
+            width: 320px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+
+        <div>
+            <label for="lbl-username">Username </label>
+            <input type="text" name="username" id="lbl-username">
+        </div>
+        <div>
+            <label for="lbl-password">Password </label>
+            <input type="password" name="password" id="lbl-password">
+        </div>
+        <div>
+            <label for="lbl-city">City of </label>
+            <input type="text" name="city" id="lbl-city">
+        </div>
+        <div>
+            <label for="lbl-employmet">Employmet </label>
+            <input type="text" name="employmet" id="lbl-employmet">
+        </div>
+        <div>
+            <label for="">Web server</label>
+            <select>
+                <option value="0">--Choose a server--</option>
+                <option value="1">Apache Tomcat</option>
+                <option value="2">Nginx</option>
+                <option value="3">LiteSpeed</option>
+            </select>
+        </div>
+        <div style="display: flex;">
+            <label for="">Please specefy your role:</label>
+            <div style="width: 100px;">
+                <label><input type="radio" name="role" value="0" /> Admin
+                </label>
+                <label> <input type="radio" name="role" value="1" /> Manager
+                </label>
+                <label> <input type="radio" name="role" value="2" /> Guest
+                </label>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <label for="">Single Sign-on to the following</label>
+            <div style="width: 100px;">
+                <label>
+                    <input type="checkbox" name="source" value="mail" checked />
+                    Mail
+                </label>
+                <label>
+                    <input type="checkbox" name="source" value="self-service" /> Self-service
+                </label>
+                <label>
+                    <input type="checkbox" name="source" value="Payroll" /> Payroll
+                </label>
+            </div>
+        </div>
+        <div style="margin-left: 120px;">
+            <button>Login</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+
+</html>

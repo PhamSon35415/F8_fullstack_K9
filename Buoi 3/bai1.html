@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+    <style>
+        body {
+            background-color: rgb(162, 160, 160);
+            font-family: sans-serif;
+        }
+
+        .form-main {
+            padding-left: 25px;
+            width: 550px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: transparent;
+            outline: none;
+        }
+
+        input {
+            width: 250px;
+            background-color: rgb(231, 231, 231);
+            border: 1px solid #8a8a8a;
+            border-radius: 3px;
+            height: 25px;
+            color: rgb(74, 73, 73);
+        }
+
+        select {
+            width: 255px;
+            height: 27px;
+            color: rgb(74, 73, 73);
+        }
+
+        #btn-submit {
+            display: inline-block;
+            width: 550px;
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: aqua;
+            color: aliceblue;
+            border: none;
+            font-weight: bold;
+            margin-left: 25px;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .header-info {
+            width: 550px;
+            padding-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="header-info">
+            <h1>Try a free sample</h1>
+            <p>Sign up to get a coupon you cam redeem at your nearest Dancing Goat cafe
+                for a sample of the Colombia carlos imbachi coffee. We'll also make sure you
+                don't miss out on any new products we introduce.</p>
+            </p>
+        </section>
+    </header>
+    <main>
+        <form action="">
+            <div class="form-main">
+                <div class="form-left">
+                    <div><label for="lbl-name">First name</label></div>
+                    <input type="text" name="name" id="lbl-name" placeholder="john">
+                    <div><label for="lbl-email">Email</label></div>
+                    <input type="email" name="email" id="lbl-email" placeholder="john.email.com">
+                    <div><label for="lbl-city">City</label></div>
+                    <input type="text" name="city" id="lbl-city" placeholder="London">
+                    <div><label for="lbl-code">Zip code</label></div>
+                    <input type="text" name="code" id="lbl-code" placeholder="HSS62BDUH">
+                </div>
+                <div class="form-right">
+                    <div><label for="lbl-lastname">Last name</label></div>
+                    <input type="text" name="lastname" id="lbl-lastname" placeholder="Smith">
+                    <div><label for="lbl-addres">Email</label></div>
+                    <input type="text" name="Addres" id="lbl-addres" placeholder="Stilk st">
+                    <div><label for="lbl-state">City <span style="color: #575656;">(optional)</span></label></div>
+                    <input type="text" name="state" id="lbl-state">
+                    <div><label for="lbl-code">First name</label></div>
+                    <select>
+                        <option value="0">Việt Nam</option>
+                        <option value="1">Mỹ</option>
+                        <option value="2">Úc</option>
+                        <option value="3">Bỉ</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="btn-submit">
+                SEND ME FREE COFFEE</button>
+
+        </form>
+
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>
