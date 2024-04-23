@@ -10,9 +10,7 @@
         input[type="email"]:focus,
         select:focus {
             border-color: transparent;
-            /* Tắt viền */
             outline: none;
-            /* Tắt viền đường nét khi focus */
         }
 
         td {
@@ -24,34 +22,40 @@
 
 <body>
     <table border="1" width="300px" cellspacing="0" height="500">
-        <tr>
-            <td colspan="5"><input type="text" name="" id="" value=":)"
-                    style="width: 96%;height: 60%;font-size: 20px; border: none;text-align: right;"></td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>+</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>C</td>
-            <td>0</td>
-            <td>=</td>
-            <td>/</td>
-        </tr>
+        <thead>
+            <tr>
+                <td colspan="5"><input type="text" name="" id="" value=":)"
+                        style="width: 96%;height: 60%;font-size: 20px; border: none;text-align: right;"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>x</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>C</td>
+                <td>0</td>
+                <td>=</td>
+                <td>/</td>
+            </tr>
+        </tfoot>
     </table>
 </body>
 
