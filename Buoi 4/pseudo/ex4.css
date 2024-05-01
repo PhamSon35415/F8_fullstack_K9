@@ -1,0 +1,34 @@
+/* 
+Cú pháp: selector::Tenphantu
+- before :Them vao truoc
+- after : Thêm vào sau
+-> before, after  phai cos content dung truoc
+- first-letter: chon ky tu dau tien
+- first-line: chon dong dau tien
+- selection: chon khi boi den
+- placeholder:
+*/
+.title::after {
+    content: "a";
+}
+.title::before {
+    content: "a";
+}
+p::first-letter {
+    color: red;
+}
+p::first-line {
+    color: rgb(0, 255, 26);
+}
+p::selection {
+    background: black;
+    color: gold;
+}
+input::placeholder {
+    color: red;
+    background: black;
+}
+input::selection {
+    background: black;
+    color: gold;
+}

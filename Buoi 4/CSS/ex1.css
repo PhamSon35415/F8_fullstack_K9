@@ -1,0 +1,29 @@
+/* h1 {
+    color: yellow;
+    background-color: rgb(24, 0, 238);
+}
+* {
+    color: rgb(245, 57, 0);
+}
+#title {
+    color: rgb(0, 0, 0);
+    background-color: rgb(24, 0, 238);
+}
+.sub-title {
+    color: blueviolet;
+}
+.content .title {
+    color: aqua;
+}
+.box .title {
+    color: rgb(155, 255, 6);
+} */
+/* .box > .title {
+    color: rgb(39, 6, 255);
+}
+.menu > li > a {
+    color: red;
+} */
+div.content#text {
+    color: red;
+}

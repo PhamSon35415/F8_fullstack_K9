@@ -1,0 +1,30 @@
+/* p ~ h2 {
+    color: aquamarine;
+}
+p ~ div > h2 {
+    color: red;
+}
+h2 + h2 {
+    color: blueviolet;
+} */
+/* ul li a[target] {
+    color: red;
+}
+ul li a[href="https://fullstack.edu.vn/"]
+{
+    color: blue;
+} */
+/* ul li a[href^="https://fullstack.edu.vn/"] Bắt đầu bằng https://fullstack.edu.vn/
+{
+    color: blue;
+}
+ul li a[href$=".vn/"] { kết thúc bàng .vn
+    color: rgb(224, 12, 12);
+} 
+
+ul li a[href*="dantri.com.vn"] { Có chứa dantri.com.vn
+    color: rgb(246, 8, 8);
+}*/
+/* ul li a[title~="Hello"] { chon the co 1 tu
+    color: aqua;
+} */

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .content {
+            margin: 50px;
+            position: relative;
+            width: 50vh;
+            font-size: 12px;
+            font-style: italic;
+            font-weight: 500;
+            font-family: 'Times New Roman';
+        }
+
+        .content::before {
+            position: absolute;
+            left: -40px;
+            bottom: 65px;
+            content: "“";
+            background-color: rgb(213, 210, 210);
+            width: 30px;
+            height: 30px;
+            /* outline: 5px 0px 0px 5px; */
+            border-radius: 50%;
+            font-size: 35px;
+            text-align: center;
+            line-height: 55px;
+        }
+
+        .content::after {
+            position: absolute;
+            right: -15px;
+            bottom: -25px;
+            content: "„";
+            background-color: rgb(213, 210, 210);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 35px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+</body>
+
+</html>
