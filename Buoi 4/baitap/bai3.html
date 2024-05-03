@@ -79,6 +79,7 @@
         }
 
         .describe {
+
             padding-top: 20px;
             text-align: center;
         }
@@ -124,6 +125,33 @@
         .product img {
             border-bottom: 0.5px solid rgb(232, 232, 232);
         }
+
+        input {
+            appearance: none;
+        }
+
+        input::before {
+            content: "\2605";
+            color: #ccc;
+            cursor: pointer;
+
+        }
+
+        input:checked::before,
+        input:checked~input:before {
+            color: #FFD43B;
+        }
+
+        input:hover::before,
+        input:hover~input:before {
+            color: #f6d86c;
+        }
+
+        .start {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -154,12 +182,12 @@
                     </div>
                 </div>
                 <div class="describe">
-                    <div>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #7c7c7c;"></i>
+                    <div class="start">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
                     </div>
                     <p>Casual Shirt with Ruffle Hem</p>
                     <span>$122.00</span>
@@ -179,12 +207,12 @@
                     </div>
                 </div>
                 <div class="describe">
-                    <div>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #7c7c7c;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #7c7c7c;"></i>
+                    <div class="start">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
                     </div>
                     <p>Casual Shirt with Ruffle Hem</p>
                     <span>$122.00</span>
@@ -204,12 +232,12 @@
                     </div>
                 </div>
                 <div class="describe">
-                    <div>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #7c7c7c;"></i>
+                    <div class="start">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
                     </div>
                     <p>Casual Shirt with Ruffle Hem</p>
                     <span>$122.00</span>
@@ -229,12 +257,12 @@
                     </div>
                 </div>
                 <div class="describe">
-                    <div>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
-                        <i class="fa-sharp fa-solid fa-star fa-2xs" style="color: #FFD43B;"></i>
+                    <div class="start">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
+                        <input type="radio" name="rate" id="">
                     </div>
                     <p>Casual Shirt with Ruffle Hem</p>
                     <span>$122.00</span>

@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.box {
+    /* background-color: aqua; */
+    margin-bottom: 10px;
+}
+
+.box > label {
+    color: #fff;
+    font-weight: 600;
+    display: inline-block;
+    background-color: #d95825;
+    padding: 5px 8px;
+    width: 100%;
+}
+
+.box .content-container {
+    margin-left: 20px;
+}
+
+.content-container .content {
+    display: none;
+    line-height: 1.4;
+}
+
+.check-hidden:checked ~ .content-container .content {
+    display: block;
+}
+
+.check-label::before {
+    display: inline-block;
+    text-align: center;
+    width: 15px;
+    content: "+";
+}
+
+.check-hidden:checked ~ .check-label::before {
+    content: "-";
+}

@@ -1,0 +1,38 @@
+/*  :not(.active) Loại bỏ 
+:first-child Con đầu tiên
+:Last-child con cuoi cùng
+x:first-of-type Con đầu tiên có tên thẻ là x
+x:last-of-type Con cuối cùng có tên thẻ là x
+x:nth-of-type()
+x:nth-child()
+input:valid thay đổi css khi nhập
+
+
+*/
+/* ul li:not(.active) {
+    color: red;
+} 
+ul li:first-child {
+    color: red;
+}
+ul li:last-child {
+    color: rgb(100, 3, 246);
+}
+ul li:first-of-type {
+    color: rgb(255, 0, 68);
+}
+ul li:last-of-type {
+    color: rgb(213, 255, 1);
+}
+ul li:nth-of-type(2n + 1) {
+    color: aqua;
+} */
+.checkbox input:checked ~ span {
+    color: aqua;
+}
+.checkbox input:disabled ~ span {
+    color: rgb(66, 65, 65);
+}
+.checkbox input:disabled:checked ~ span {
+    color: rgb(87, 9, 255);
+}

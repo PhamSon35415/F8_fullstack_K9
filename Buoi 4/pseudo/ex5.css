@@ -3,7 +3,7 @@ cú pháp: selecter:tenlopgia
 - hover: đi chuột vào
 - active: click chuột vào
 - focus: Chỉ hoạt động với form hoặc thẻ html có thuộc tính tabindex
-- first-child
+- first-child: 
 - last-child
 - first-of-type
 - last-of-type

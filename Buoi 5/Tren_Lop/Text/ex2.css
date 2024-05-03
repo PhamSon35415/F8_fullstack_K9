@@ -1,0 +1,27 @@
+/* 
+color: thay đổi màu chữ
+*Tên màu
+*Rgb
+*hsl
+*hexa
+font-size: thay doi cỡ chữ
+- cú pháp 
++ px tuyệt đối
++ pt tuyệt đối 1pt=1.33333px
++ % Tương đối
++ em tương đối tỷ lệ với cha
++ rem tương đối tỷ lệ với mặc dịnh của trình duyệt
+Lưu ý: trong css sẽ luôn có các thuộc tính dc kế thừa 
+   -Initial--> giá trịn mặc dịnh của trinh duyệt
+   -inherit-->kế thừa của cha
+
+line-height  thay dổi chiều cao dòng
+
+*/
+html {
+    font-size: 62.5%;
+}
+p {
+    font-size: 1.6em;
+    line-height: 1.5;
+}

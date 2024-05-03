@@ -1,0 +1,74 @@
+/* 
+font-family thay dổi font chữ cho văn bản
+
+lưu ý : nếu tên font có khoảng trắng " " Thì thêm đấu ""
+trong thuộc tinh font family sẽ có các thuocj tính đại điện cho họ font 
++ serif :họ có chân
++ sans-serif :họ không chân
+text-decoration: ;
++ none : Không 
++ Underline: gạch chân
++ overline: gạch trên
++ line-through: gạch giữa
+text-transform : ;
++ none : giữ nguyên
++ lowercase :chư thường
++ uppercase: chữ hoa
++ capitalize : viết hoa chũ đầu
+letter-spacing: khoảng cách giũa các ký tự
+word-spacing: khoảng cách giũa mỗi từ
+word-wrap: break-word (khi hết dòng sẽ xg dòng)
+word-break: break-all
+text-align:;Căn chỉnh văn bản theo chiều ngang
+- left
+- right
+- center
+- justify: căn đều
+text-align-last:;Căn chỉnh dòng cuối văn bản theo chiều ngang
+
+*/
+@font-face {
+    font-family: "SVN Font";
+    src: url("./font/SVN-Fontbox-Boathouse-Filled.otf");
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-BoldItalic.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-Italic.ttf");
+    /* font-weight: 300; */
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-LightItalic.ttf");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("./font/Lato-Regular.ttf");
+    font-weight: 400;
+}
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap);
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline aquamarine;
+    text-transform: capitalize;
+    /* text-decoration-color: aqua; */
+}
