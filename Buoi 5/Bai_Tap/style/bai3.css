@@ -26,8 +26,12 @@ body {
     padding: 10px 10px 20px;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: transform 1s ease;
 }
-
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 .container-product {
     width: 700px;
     display: flex;
