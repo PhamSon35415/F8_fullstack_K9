@@ -1,0 +1,255 @@
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: gray;
+}
+
+h2 {
+    margin: 0;
+    color: #131313;
+    font-size: 50px;
+    font-family: "Lobster", sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#input-item::placeholder {
+    content: "pk";
+    border: none;
+    /* border-left: 20px solid black; */
+}
+
+#input-item:not(input[type="checkbox"]) {
+    height: 35px;
+    width: calc(100% - 50px);
+    border-color: 2px solid#c0c0c0;
+}
+
+select {
+    height: 38px !important;
+    width: calc(100% + 4px) !important;
+    border-color: 2px solid#c0c0c0;
+    width: 100%;
+    padding-left: 70px;
+    height: 40px;
+    appearance: none;
+    font-weight: 400;
+    font-style: normal;
+}
+
+input[type="checkbox"] {
+    margin: 0 10px 0;
+    display: none;
+}
+
+.copy {
+    /* height: 20px; */
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    color: #f00;
+    background-color: transparent;
+    border: 2px solid red;
+    width: 100px;
+    height: 35px;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: red;
+    border: 2px solid #fff;
+}
+
+.item-form {
+    width: 100%;
+    position: relative;
+}
+
+.content-hidden {
+    color: #fff;
+    position: absolute;
+    background-color: #131313;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    top: -52px;
+    left: 56px;
+    border-radius: 5px;
+    opacity: 0.8;
+    display: none;
+    transition: 1s;
+}
+
+.item-form:active .content-hidden {
+    display: inline-flex;
+}
+
+#input-item:active ~ .left-item,
+#input-item:focus ~ .left-item {
+    opacity: 1;
+}
+
+.item-form:hover #input-item {
+    border: 2px solid black;
+}
+
+#textarea-item:active ~ .left-item,
+#textarea-item:focus ~ .left-item {
+    opacity: 1;
+}
+
+.item-form:hover #textarea-item {
+    border: 1px solid black;
+}
+
+.item-form:hover .left-item {
+    opacity: 1;
+}
+
+.item-form:hover .fa-xmark {
+    display: inline;
+}
+
+.item-form:hover .fa-star {
+    display: none;
+}
+
+.item-form:hover .fa-up-down {
+    color: #131313;
+}
+
+#input-item:focus ~ .content-star-mark .fa-up-down,
+#input-item:active ~ .content-star-mark .fa-up-down {
+    color: #131313;
+}
+
+#input-item:focus ~ .content-star-mark .fa-xmark {
+    display: inline;
+}
+
+#input-item:focus ~ .content-star-mark .fa-star {
+    display: none;
+}
+
+.content-hidden__tamgiac {
+    position: absolute;
+    border: 15px solid #131313;
+    border-bottom-width: 0px;
+    border-color: #131313 transparent transparent;
+    bottom: -14px;
+    left: 10px;
+}
+
+textarea {
+    height: 100% !important;
+    width: 100%;
+}
+
+.input-ari {
+    width: calc(100% - 50px);
+    height: 80px !important;
+}
+
+textarea ~ .left-item {
+    height: calc(100% + 5px) !important;
+}
+
+#input-item,
+textarea {
+    padding-left: 50px;
+}
+
+.input-ari .content-star-mark {
+    top: 10px;
+    right: -50px;
+}
+
+#input-item:focus ~ .content-hidden {
+    display: inline-flex;
+}
+
+.left-item {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    background-color: #131313;
+    opacity: 0.4;
+    transition: 0.5s;
+}
+
+.content-star-mark {
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.fa-xmark {
+    display: none;
+}
+
+#checkbox__sm {
+    width: 20px;
+    height: 20px;
+}
+
+.check-cp {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.check-cp label {
+    margin-left: 30px;
+}
+.tick-check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #e6e6e6;
+    border: 2px solid #989898;
+}
+.tick-check:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 13px;
+    height: 8px;
+    border: solid rgb(19, 19, 19);
+    border-width: 0 0px 3px 3px;
+    transform: rotate(-45deg);
+    transition: 0.5s;
+    display: none;
+}
+input:checked ~ .tick-check:after {
+    display: block;
+}
