@@ -219,7 +219,10 @@ textarea {
     position: relative;
 }
 .check-cp label {
-    margin-left: 30px;
+    padding-left: 30px;
+    width: 220px;
+    height: 25px;
+    z-index: 1;
 }
 .tick-check {
     position: absolute;
