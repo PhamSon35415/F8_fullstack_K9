@@ -1,0 +1,39 @@
+/* 
+
+
+
+*/
+/* .box {
+    width: 100vh;
+    height: 100px;
+    border-width: 10px 6px 5px 15px;
+    border-style: solid dotted double dashed;
+    border-color: blue black red rgb(2, 255, 94);
+    color: red;
+    border: 5px solid currentColor;
+    border-radius: 100% 100% 0px 100%;
+} */
+.btn {
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    color: rgb(255, 0, 0);
+    border: 1px solid currentColor;
+    border-radius: 1000px;
+}
+.btn:hover {
+    background-color: red;
+    color: #fff;
+}
+.text {
+    border: 1px solid black;
+    width: 100px;
+}
+.box {
+    width: 400px;
+    border: 1px solid black;
+}
+.content {
+    min-width: 100px;
+    border: 1px solid red;
+}

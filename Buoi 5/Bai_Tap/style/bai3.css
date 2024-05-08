@@ -59,6 +59,10 @@ body {
 .content > p {
     font-size: 9px;
     color: rgb(129, 129, 129);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .product > button {

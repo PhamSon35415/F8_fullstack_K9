@@ -1,0 +1,24 @@
+/* 
++ background-color
++ background-images
++ background-repeat
++ background-position:left,center,right, đơn vị tương đối tuyệt dối, top,center,bottom, đơn vị tương đối tuyệt dối
++ background-size
+-cover: phủ hét toàn bộ khung
+-contain: 
++ background-attachment: ;cố dịnh hay ko khi kéo trình duyệt
++ background: color images repeat position/size attachment;
+
+ */
+.box {
+    height: 1000px;
+    /* background-image: url(https://fastly.picsum.photos/id/154/800/800.jpg?hmac=nFH4tlKgfuXw9GtYsSX8IAR-Q6_8L91ChP-1meJaSNY);
+    background-color: aquamarine;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    background-attachment: fixed; */
+    background: aqua
+        url(https://fastly.picsum.photos/id/154/800/800.jpg?hmac=nFH4tlKgfuXw9GtYsSX8IAR-Q6_8L91ChP-1meJaSNY)
+        no-repeat 50% 50% / cover fixed;
+}

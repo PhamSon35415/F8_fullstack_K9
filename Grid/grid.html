@@ -4,30 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .container {
-            display: grid;
-            grid-template-columns: 100px 150px;
-            grid-template-rows: 60px 80px 190px;
-            align-items: center;
+        body {
+            margin-top: 100px;
         }
 
-        .item {
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid #dddddd;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
 
-            background: #dd1f1f;
-            border: 1px solid black;
+        .icon {
+            position: absolute;
+            background: #040404;
+            height: 100%;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* opacity: 0.3; */
+        }
+
+        .name {
+            width: 100%;
+            height: 40px;
+            padding-left: 70px;
+            border: none;
+        }
+
+        .icon-star {
+            position: absolute;
+            height: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            opacity: 0.3;
+            right: 0;
+            padding-right: 10px;
+            font-size: 9px;
+        }
+
+        .box-content {
+            position: absolute;
+            height: 44px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            color: white;
+            background: #000;
+            font-size: 13px;
+            bottom: 60px;
+            left: 30px;
+            padding: 0 10px;
+            /* display: none; */
+        }
+
+        .tam-giac {
+            position: absolute;
+            top: 100%;
+            right: 60%;
+            width: 0;
+            height: 0;
+            border: 12px solid;
+            border-bottom: none;
+            border-bottom-width: 0;
+            border-color: #000 transparent transparent transparent;
         }
     </style>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="item item1">item1</div>
-        <div class="item item2">item2</div>
-        <div class="item item3">item3</div>
-        <div class="item item4">item4</div>
-        <div class="item item5">item5</div>
+    <div class="input-container">
+        <input type="text" class="name" id="name" name="name" placeholder="Your name" />
+        <div class="icon-wrap icon">
+            <i class="fa-regular fa-user" style="color: blue;"></i>
+        </div>
+        <div class="icon-wrap icon-star">
+            <i class="fa-solid fa-star icon-sao"></i>
+            <i class="fa-solid fa-xmark icon-nhan"></i>
+        </div>
+        <div class="box-content">
+            <p>Enter your name</p>
+            <div class="tam-giac"></div>
+        </div>
     </div>
 </body>
 
