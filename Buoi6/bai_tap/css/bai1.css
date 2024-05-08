@@ -67,7 +67,8 @@ input[type="checkbox"] {
 
 .btn {
     background-color: red;
-    border: 2px solid #fff;
+
+    color: #fff;
     border: none;
     width: 100px;
     height: 35px;
