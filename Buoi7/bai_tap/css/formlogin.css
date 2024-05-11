@@ -142,6 +142,9 @@ body {
     align-items: center;
     font-size: 12px;
 }
+.check-cp input {
+    margin-right: 10px;
+}
 .check-cp a {
     color: #717171;
 }
