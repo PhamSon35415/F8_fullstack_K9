@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(http://uiwebsoft.com/justlog/login-one/images/login-bg2.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+.container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    background-color: #fff;
+    width: 600px;
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.left-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #ff574d;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+}
+.left-item::before {
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    content: "\f061";
+    color: #ff574d;
+    font-weight: 900;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+    right: -15px;
+}
+.left-item h2 > span {
+    text-align: center;
+    color: #ff574d;
+    display: inline-block;
+    width: 30px;
+    padding-left: 2px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.icon-media {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    height: 30px;
+}
+.left-item p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 90%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.left-item .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #ff574d;
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    font-weight: 500;
+    background-color: #fff;
+}
+.icon-media i {
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background-color: rgba(59, 59, 59, 0.41);
+    border-radius: 3px;
+}
+.right-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #717171;
+}
+.right-item h3 {
+    color: #272323;
+    position: relative;
+    margin-bottom: 30px;
+}
+.right-item h3 span {
+    color: #ff574d;
+}
+.right-item h3::before {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 1px;
+    bottom: -2px;
+    right: 45%;
+    background-color: #ff574d;
+}
+.input-form {
+    width: 80%;
+    height: 40px;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    padding-left: 15px;
+}
+
+.check-cp {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+    font-size: 12px;
+}
+.check-cp a {
+    color: #717171;
+}
+.check-cp a:hover,
+.register:hover {
+    color: rgb(0, 0, 255);
+}
+.check-cp label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button[type="submit"] {
+    width: 80%;
+    height: 30px;
+    background-color: #ff574d;
+    border: none;
+    color: #fff;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+.register {
+    font-size: 12px;
+    color: #717171;
+}
