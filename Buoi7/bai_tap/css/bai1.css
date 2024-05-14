@@ -1,5 +1,12 @@
 body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     background-color: gray;
+}
+ul {
+    padding: 0;
+    margin: 0;
 }
 .container {
     margin: 0 auto;
@@ -7,23 +14,39 @@ body {
     width: 700px;
     background-color: rgb(68, 68, 68);
 }
-a {
-    border-radius: 6px;
+.menu-item a {
     display: inline-block;
     text-decoration: none;
     color: #fff;
     padding: 10px 20px;
-    width: 50px;
-    text-align: center;
+    width: 100%;
+    /* text-align: center; */
 }
-ul {
+.menu {
     margin: 0 auto;
     padding: 0;
     list-style: none;
 }
-a:hover {
+.menu-item:hover {
+    border-radius: 6px;
     background-color: rgb(102, 228, 163);
 }
-li {
+.menu > .menu-item:hover .sub-menu {
+    display: block;
+}
+.menu > .menu-item {
     display: inline-block;
+    position: relative;
+}
+.sub-menu > .menu-item {
+    width: 150px;
+}
+.sub-menu {
+    position: absolute;
+    top: 39px;
+    left: 0px;
+    border-radius: 6px;
+    list-style: none;
+    background-color: rgb(108, 106, 106);
+    display: none;
 }

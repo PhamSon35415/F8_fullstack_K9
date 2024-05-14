@@ -1,0 +1,20 @@
+/* 
+ 1 .tên thẻ(class,id,...)::first-line {}(chọn dòng đầu tiên của thẻ)
+ 2 .tên thẻ(class,id,...)::ffirst-letter{}( chọn chữ cái đầu tiên)
+ 3 .tên thẻ(class,id,...)::selection{}(tác động vào các đoạn bị bôi đen)
+ 4.tên thẻ(class,id,...)::marker {}(tác động vào các đấu của thẻ ul li hc ol li ,...)
+ 5.tên thẻ(class,id,...)::before{phải có content:"Noi dung cần chèn "}thêm vào trước
+                        ::after{phải có content:"Noi dung cần chèn "}thêm vào sau
+II Overflow:
+    :visble(mặc định) hiện ra
+    :hidden(ẩn di ko có thanh cuộn)
+    :scroll(hiện thanh cuộn)
+    :auto( chỉ hiện thanh cuộn khi vượt quá giới hạn)
+ 
+overscroll-behavion:auto(mặc định)(có cuộn chuỗi :khi cuộn hết cuộn con khi chạm dáy cuộn con nó sêc cuộn ra cuộn cha)
+                    :contain( cuộn hêt cuộn con sẽ ko cuộn phần bên ngoài)
+                    :none( cuộn hêt cuộn con sẽ ko cuộn phần bên ngoài loại bỏ dc các hành vi cuộn lên tải lại trang)
+                    :
+  verflow:overlay( nó sẽ nổi lên và có thể có nội dung bên dưới);  
+                  
+*/

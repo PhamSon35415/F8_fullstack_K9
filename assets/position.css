@@ -1,0 +1,17 @@
+/* 
+    1,flow layout (bố cục luồng | luồng bình thường)
+    2,positioned(được dịnh vị)
+    -top
+    -right
+    -bottom
+    -left
+    position
+    :static(mặc định)
+    :relative dúng ý 1,2 ->định vị theo vị trí ban đầu của nó
+    :absolute  dúng ý 2 -> 1.ko có thẻ cha dc dịnh vị ->định vị theo vị trí thẻ body
+                        -> 2.có thẻ cha dc dịnh vị ->định vị theo vị trí của thẻ cha (dc định vị) gần nhất
+    (z-index:số;khi có nhiều phần tử nằm đè lên nhau thì số của z-index càng lớn sẽ dc hiển thị đè lên các phần tử có gtri nhỏ hơn)
+    :fixed dúng ý số 2 ->dịnh vị theo viewpost (có inset : top ......px giống padding)
+    :sticky dung 2 ý ->dc dịnh vị theo thẻ cha có thanh cuộn gần nhất(ứng dụng khi cuộn đến điểm dc dịnh vị nó sẽ cố dịnhf lại
+
+ */

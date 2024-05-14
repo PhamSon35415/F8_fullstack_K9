@@ -1,0 +1,66 @@
+/* 
+    1,serif (có chân)
+    2,sans-Serif( ko chân) phổ biến nhất.
+    3,monospace (độ rộng = nhau)
+    System Font( sử dụng font chữ hệ thống)
+    1,line-height: nên dùng bằng số VD (=n <=> =n*font-size) Với tiếng anh thg là 1.4 hc 1.6 tiếng việt là >=1.5)
+    2,font-variant:small-caps;(chữ hoa nhỏ)
+    3,font-weight:độ rộng chữ (100-900)
+    Tổng hợp font(tìm kiếm font shorthand css)
+    4,letter-spacing:(khoảng cach giua các chữ)
+    5,text-align:(căn chữ trái(left),phải(right),... Căn dều(justify)
+    6,text-dicoration:underline(gạch dưới)overline(gạch trên)line-through(gạch giữa) kiểu  màu;
+    7,text-indent:n px;(thò thụ dầu dòng -+)
+    8,text-tranform:lowercase(viết thg hết), uppercase(viết hoa hết) ,capitalize(viết hoa chữ cái đầu)
+    9,white-space(lm vc với khoảng trắng)
+                  :normal( binh thuong):dúng 1,2,3
+                  :nowrap  dúng với 1,2.(dùng để viết trên 1 hàng)
+                  :pre   (giữ nguyên dịnh dạng )
+                  :pre-line dúng với ý 1,3 
+                  :pre-wrap dúng với 3
+        các ý đúng 1.Nhiều khoảng trắng =>1 khoảng trắng
+                    2.Nhiều đấu xg hàng =>1 khoảng trắng
+                    3.Nội dung bị giới hạn =>xg hàng)
+
+    10,word-break:break-all;(khi chạm giới hạn sẽ tưj xg dòng)
+    11, word-spacing:n px; tăng khoảng cánh giữa các từ
+    12,text-shadow: 0px(Trục x) 0px(Trục y) 10px(độ nhòe) Màu bóng đổ;           
+    13,text-overdlow:clip(mặc dịnh)(Khi nội dung vượt quá khung thì sẽ dùng white-space:nowrap; overflow:hidden; để ẩn đi xog dùng
+                                    text-overflow:ellipsis để hiện nên đấu ...)
+    14,text-rendering:optimizeSpeed(tối ưu để hiện thị font chữ nhanh nhất)
+                    :optimizeLegibility(hiển thị dúng dủ)
+    15,-webkit-font-smoothing:antialiased (khử răng cưa)dùng cho mac os
+        -moz-ox-font-smoothing:grayscale (khử răng cưa)
+    16,
+    
+    
+
+
+    
+            <div id="menu">
+                <div class="item">
+                    <a href=""><i class="fa-solid fa-house"></i> Trang chủ</a>
+                     
+                </div>
+                <div class="item">
+                    <a href="#wp-products" ><i class="fa-brands fa-product-hunt"></i> Sản phẩm</a>
+                    <div class="sub-menu">
+                        <a href="#!">Menu item 1.1</a>  
+                        <a href="#!">Menu item 2.1</a>  
+                        <a href="#!">Menu item 3.1</a>  
+                    </div>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-solid fa-blog"></i> Blog</a>
+                </div>
+                <div class="item">
+                    <a href=""><i class="fa-solid fa-window-restore"></i> Giới Thiệu</a>
+                </div>
+                <div class="item">
+                    <a href="#lienhe"><i class="fa-solid fa-phone-volume"></i> Liên hệ</a>
+                </div>
+            </div>
+
+
+
+*/

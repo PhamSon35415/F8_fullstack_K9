@@ -1,0 +1,9 @@
+/* 
+Pointer-events:none;(khoong cho  người dùng tương tác vói phần tử)
+Mix-blend-mode:difference;(để so sánh 2 hình đè lên nhau(dùng ít))
+Clip-path:circle(n px,%..(bán kính) at x y(thay dổi tâm hình tròn);(cắt theo hình tròn)
+        :inset(xpx(giống padding) round xpx(bo góc));(cắt theo hình vuông)
+        :polygon(
+
+
+*/

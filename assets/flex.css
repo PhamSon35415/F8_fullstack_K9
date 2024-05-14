@@ -1,0 +1,11 @@
+/* flex-wrap:wrap;(xep theo dung kich thuoc
+    align-content: (can khi co 2 hang tro len)
+    flex-direction:row(mặc dịnh ngang)thêm -reverse để đảo ngược
+                :column(theo chieu dọc)
+    flex-flow:flex-direction wrap;(viế tắt)
+     flex-shrink:(tuy chinh su co dan cua phan tu bnag so mac dinh la 1)
+     flex- basis:(dat kich thuoc toi thieu cho pt)
+        flex:grow shrink basis;
+        order:số(dể sắp xếp các phan tu)
+    
+        */

@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Asap", sans-serif;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    position: relative;
+    color: #ffffff;
+}
+
+.logo {
+    display: inline-block;
+    background-color: #fff;
+    width: 250px;
+    padding: 30px;
+    padding-bottom: 3px;
+    border-radius: 10px 10px 0 0;
+}
+
+.content {
+    position: absolute;
+    /* align-items: center; */
+    top: calc(400px - 149.5px);
+    left: 70px;
+    display: flex;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-image: url(https://fastly.picsum.photos/id/1058/1700/600.jpg?hmac=D3W1t913sQaesJRZIaADUuGAuWaZyiA9Cv-PnkS7DGw);
+}
+
+.profile {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.profile-heading {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.profile-desc {
+    margin-right: 20px;
+}
+
+.profile-desc > span {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.menu {
+    float: right;
+    list-style: none;
+    font-size: 0;
+    margin-right: 50px;
+}
+
+.menu-item {
+    position: relative;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0px 20px;
+    /* background-color: antiquewhite; */
+}
+
+.menu-item a {
+    display: inline-block;
+    padding: 10px 0px;
+    color: #3f3424;
+    font-weight: 600;
+}
+
+.menu-item:hover a {
+    color: #bf4240;
+    border-bottom: 5px solid #bf4240;
+}

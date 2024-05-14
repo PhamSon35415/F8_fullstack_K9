@@ -1,0 +1,41 @@
+/* 
+
+
+      box-shadow: (sang phải)px (xg dưới)px (Nhòe)px (độ rộng)px #888888;
+      backdrop-filter:blur(x px) làm nhòe
+    3.background-color: màu nền
+    4.background image: url(link ảnh): ảnh nền(
+      background-repeat:repeat-x(theo chieu ngang)-y(theo chieu doc)
+      no-repeat(ko lap lai;)
+      màu chuyển background-image:linear-gradient((màu chuyển)
+            direction(ko bat buoc mac dinh la to bottom(trên xg),to top(dưới lên),....hoặc 20deg(20 độ)...)
+            background-image: linear-gradient(
+            direction (optional - to bottom),
+            color1 (required) stop1 (optional),
+            color2 (required) stop2 (optional),
+            ...);
+            vd:-background-imagne:linear-gradient(
+            -background-image: linear-gradient(red 30%,blue70%););
+      background-repeat:no-repeat(bỏ lặp lại ảnh)
+            background-size:cove;(de nấp đầy co the bi mat di mot phan cua hinh anh)
+      background-size:contain;(de nấp đầy ko chap nhan bi mat bi bat cu phan nao)
+      background-position:-((top right, bottom right,bottom left,top left)
+                        -(can giua left centter,top center, right center,bottom center,chinh giua la center center cung co thể bỏ từ center thì nó vân căn giũa))
+                        -x% y%
+                        -xpx ypx(
+      background-attchment:scroll(la thuoc tinh mac dinh)
+                        fixed;(co dinh anh khi cuộn)
+                        local;(cuộn theo thanh cuộn con)
+      overflow:auto;(khi maf the con vuoi qua chieu cao cua the cha thi xuat hien thanh cuộn)
+      
+      background-clip:border-box(mặc dịnh)(có tác dụng với cả background clor vs image)
+                        :pading-box(đổ từ padding vào)
+                        :conten-box(chỉ đổ conten)
+                        :text(chữ)
+      background-origrin:(gốc của ảnh)(chỉ có tác dụng voi background-image)
+                        :border-box(diểm bắt đầu ở border)
+                        :content-box(diêm bắt đầu ở content)
+                        :padding-box(mặc dịnh)
+      (background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;)
+
+ )*/

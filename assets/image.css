@@ -1,0 +1,8 @@
+ /* 
+ thêm vào thẻ img loading="lazy" khi gần đến ảnh sẽ tải ảnh
+ 2,object-fit:cover(lấp dầy khung giữ dúng tỉ lệ nhưng xó thẻe sẽ mất đi 1 phần hình ảnh)
+            :contain (lấy dủ kích thc hình ảnh nhưng bị trống)
+ 3,object-position:Giống bên background-position
+ 4,float:(left,right,center,...) để nội dug trong thẻ trong cha của nó bo theo nó
+ 
+  */

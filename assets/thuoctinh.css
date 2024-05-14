@@ -1,0 +1,95 @@
+/* 
+
+0. line-height:chieu cao dong
+ 1.color
+ 2.font-size :
+
+
+ 4,5.text-transfore:uppercase,...;(dể viết hoa)
+ 5.width(rộng)/height(cao)
+ 6.box model (margin(dẩy xa nhau ra
+ /padding(viền 4 hướng(trên:-top,phải right,trái:-left,đưới:-bottom)
+ /border(:viền )
+ 
+ padding: x px(tren, dưới) y px(trái, phải);
+ padding: x px(tren) y px(trái, phải) z px(duoi);
+ padding: x px(tren) y px( phải) z px(duoi) a px (trái);
+ 
+ border: solid 5px #a174ff;
+ là viết tắt của border-width:5px;
+      border-style:solid;
+      border-color:Màu 1(tren) MÀu 2( phải) MÀu3(duoi) MÀu4 (trái);(tương tự như padding cả style cũng tuong tự))
+ 7.Border-radius:bo góc viền
+ -border-(top-left, top-right, bottom-right, bottom-left)
+8 outline:px kiểu màu;(là phần đệm thêm ở bên ngoài ko dc coi là kích thước ảnh như border ko ảnh hưởng đến bố cục bên cạnh
+ -có tính chất
+Không thuộc Box Model.
+Không nằm trên cùng mặt phẳng với phần tử.
+Không làm tăng kích thước của phần tử.)
+ outline-offset :px; để cái outline cách xa phần nội dung về các phía.
+9 max-width:
+10.text-align:center:can giua
+
+    8.CSS opacity(ẩn nhưng tương tác dc)
+    +0.0-1.0
+    +0-100%
+    9.visibility:hidden;(ẩn ko tương tác dc)
+    5.display:none(trinh duyệt bỏ qua (ẩn đi))
+
+      10.tên thẻ(class,id,...):hover{}(dể khi di chuột vào thì hien ra thuộc tính}
+      11.tên thẻ(class,id,...):active{}(Khi nhána chuột sẽ chọn)
+      12.tên thẻ(class,id,...):link{}(tác động vào linh chưa tru cập)
+      13.tên thẻ(class,id,...):visited{}(tác dộng  vào link dã truy cập)
+      14.tên thẻ(class,id,...):target{}(thay dổi style khi ấn vào
+      15.cursor:pointer; (di chuot vao se thanh hinh ban tay)
+
+15.tên thẻ(class,id,...):first-child{}(tên thẻ(class,id,...)Chọn các thẻ ( là thẻ con đầu tiên)
+      VD: p:first-child{} chọn the (p) là thẻ con dầu tiên.
+16.tên thẻ(class,id,...):last-child
+      VD: p:last-child{} chọn the (p) là thẻ con ở cuối.
+17.tên thẻ(class,id,...):nth-child(số thứ tự thẻ hoặc (odd:số lẻ even số chẵn)(hoặc bước nhảy với x doạn x*n-1){}
+18.tên thẻ(class,id,...):nth-last-child(){}ngươc lại với nth-child
+
+19.tên thẻ(class,id,...):first-of-type{} chon thẻ có tên thẻ(class,id,...) xuất hiện dầu tiên ko phân biệt là dứng thứ mấy
+20.tên thẻ(class,id,...):last-of-type{} chon thẻ có tên thẻ(class,id,...) xuất hiện cuối ko phân biệt là dứng thứ mấy
+21.tên thẻ(class,id,...):nth-of-type(vi trí :n){} chọn vị trí co tên thẻ(class,id,...) xuất hiện lần n
+22.tên thẻ(class,id,...):nth-last-of-type(vi trí :n){} chọn vị trí co tên thẻ(class,id,...) xuất hiện lần n từ dưới lên
+23.tên thẻ(class,id,...):only-child{} chon thẻ tên thẻ(class,id,...)là thẻ con duy nhất và khoong có loai nào giống nó trong thẻ cha
+24.tên thẻ(class,id,...):not(ten thẻ cần bỏ qua khi css){}
+
+ 1.user-select:none;(ko cho bôi đen)
+ 2.-webkit-user-select:none;(hỗ trợ trình quyêt gg chrom
+ -webkit-(thuộc tính):
+ 3.-moz-user-select:none;
+ 4.-ms-user-select:none;
+ 5.-o-(thuộc tính)
+ 5.text-decoration:underline(gach chan
+
+ <!-- thẻ inline khi css ko có tác dụng với
+    -padding-top,padding-bottom.
+    -margin-top,margin-bottom.
+    -width,min-width
+    -height,min-heght 
+    =>cách khấc phục là thêm display: inline-block;-->
+
+   CSS units(đơn vị)
+   absolute(tuyệt đối)
+   -px
+   relative units(tương dối)
+   -% (ngoài padding top theo phanaf trăm ưidth phần tử cha)
+   -vw, vh(viewport width, viewport height: là chiều cao vào chiều rộng của phần nhìn thấy trên trình duyệt)
+   -em (Phụ thuộc vào cỡ chữ của nó)=x*em=x*(cỡ chữ)
+   rem (Phụ thuộc vào Chỉ phị thuộc vào font-size của thẻ html)
+
+   Màu
+      :rgb(red,green,blue);(0->255)
+      :rgba(red,green,blue,aqua(Trong suot));
+      :#rrggbb;
+       :currentColor;(an theo màu của chữ)
+       :transparent;(trong suốt)
+   
+       box-sizing:border-box;(nó tu dộng tinh toan kich cỡ thật khi thay dổi )
+      
+       */
+ 
+ 
