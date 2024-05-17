@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            background-color: rgb(255, 255, 255);
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .container i {
+            margin-top: 50px;
+        }
+
+        .content:hover .box {
+            opacity: 1;
+            visibility: visible;
+            scale: 1;
+        }
+
+        input {
+            font-family: inherit;
+        }
+
+        .box {
+            position: absolute;
+            z-index: 9999;
+            top: 79px;
+            left: 13px;
+            width: 150px;
+            height: 100px;
+            background-color: azure;
+            filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
+            -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
+            -moz-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
+
+            visibility: hidden;
+            opacity: 0;
+            scale: 0;
+            transform-origin: 96% top;
+            transition: opacity 0.3s, visibility 0.3s, scale 0.3s, filter 0.4s;
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            top: -8px;
+            right: 6px;
+            border: 10px solid rgb(255, 255, 255);
+            border-color: transparent transparent rgb(255, 255, 255);
+            border-top: none;
+
+        }
+
+        .content {
+            display: inline-block;
+            width: auto;
+            height: auto;
+        }
+
+        .btn {
+            position: relative;
+            margin: 30px auto;
+            width: 100px;
+            height: 30px;
+            background-color: gold;
+            line-height: 30px;
+            border-radius: 6px;
+            /* overflow: hidden; */
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgb(140, 255, 157);
+            transition: width 0.5s ease-in;
+            scale: 1;
+        }
+
+        .btn:hover::after {
+            left: 0;
+            width: 100%;
+
+        }
+
+        .label {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 15px;
+            top: 4px;
+            left: 7px;
+            color: #777777;
+            font-size: 10px;
+            background-color: rgb(255, 255, 255);
+            pointer-events: none;
+            transition: transform, color, text-shadow;
+            transition-duration: 0.5s;
+
+        }
+
+        .form {
+            display: inline-block;
+            position: relative;
+        }
+
+        #input {
+            padding-left: 10px;
+        }
+
+        #input:focus {
+            outline: none;
+        }
+
+        #input:focus~.label,
+        #input:not(:placeholder-shown)~.label {
+            transform: translate(0, -10px);
+            text-shadow: -0.1px -0.1px currentColor, 0.1 0.1;
+        }
+
+        .run {
+            width: 75px;
+            height: 75px;
+            background-color: antiquewhite;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeVAiVkAya9qqgmEMHwPR-fAm0i2dp8tgCegGRoC9wmw&s);
+            animation: run 1s infinite steps(1);
+        }
+
+        @keyframes run {
+            0% {
+                background-position: -0px -0px;
+            }
+
+            12.5% {
+                background-position: -75px -0px;
+            }
+
+            25% {
+                background-position: -150px -0px;
+            }
+
+            37.5% {
+                background-position: -0px -75px;
+            }
+
+            50% {
+                background-position: -75px -75px;
+            }
+
+            62.5% {
+                background-position: -150px -75px;
+            }
+
+            75% {
+                background-position: -0px -150px;
+            }
+
+            87.5% {
+                background-position: -75px -150px;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- baif 1 có những gì nào cả nhà mình muốn có thật nhiều tiền nhưng lại không muốn cố gắn -->
+    <div class=" container">
+        <div class="content">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="box">
+                <p>fhjdknhjbdhj</p>
+            </div>
+        </div>
+        <div class="btn">
+            <span>Hover me!</span>
+        </div>
+        <div class="form">
+            <input type="text" id="input" placeholder=" ">
+            <label for="User name" class="label">User name</label>
+        </div>
+    </div>
+    <div class="run"></div>
+</body>
+<script src="./tes.js"></script>
+
+</html>

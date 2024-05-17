@@ -1,0 +1,185 @@
+/*  flex = flexible box module
+- có 2 thành phần
+- flex container: là thẻ chứa các flex item
+- flex item: là các thẻ con của flex container
+- flex container có 2 trục
++ Main: trục chính nằm ngang
++ cross :nằm dọc
+==> có thể thay dổi trục main
+
+flex-direction: ;
++ row
++ row-reverse
++ column
++ column-reverse
+justify-content: ;căn chỉnh song song trục chính
++ flex-end
++ flex-start
++ center
++ space-around
++ space-between
++ space-evenly
++ start
++ end
+align-item căn chỉnh song song trục cross
++ stretch 
++ flex-end
++ flex-start
++ center
++ baseline căn chỉnh theo đường base line của chữ
+flex-wrap: xuống dòng khi kích thước lớn hon container
++ nowrap 
++ wrap
++ wrap-reverse
+align-content: căn chỉnh hàng cột (chỉ áp dụng khi có nhiều hàng cột)
++ stretch 
++ flex-end
++ flex-start
++ center
++ space-around
++ space-between
++ space-evenly
+gap: thay dổi khoảng cách giữa các item
+row-gap: thay dổi khoảng cách giữa các item trên 1 cột
+column-gap: thay dổi khoảng cách giữa các item trên 1 hàng
+
+Nhóm thuộc tính flex item
+- flex grow lấp đày các item bù vào vị trí còn trống 
+- flex-shrink kiểm soát sự co lại khi tổng kích thước lớn hơn container
+- flex-basis: đơn vị kích thước; 
++ flex-basis sẽ bị chẵn bởi max width à min width
+- flex: grow shrink basis
+align-seft: căn chỉnh 1 item
++ stretch 
++ flex-end
++ flex-start
++ center
++ baseline
+Transition 
+    transition-property: tên thuộc tính;
+    transition-duration: thời gian 
+    transform-delay:thời gian
+    transition-timing-function: ; thiết lập tốc độ khi di chuyển
+    + ease ->mặc định chậm nhanh chậm
+    + ease-in ->chậm nhanh
+    + ese-out ->nhanh chậm
+    + ease-in-out ->chậm nhanh chậm
+    + ease-in-on ->chuyển động đều
+    + linear ->tốc độ đều
+    + cubic-bezier (p1,p2,p3,p4)->tốc độ tùy chỉnh
+    transition: property duration delay timing
+    
+*/
+* {
+    box-sizing: border-box;
+}
+.container {
+    border: 1px solid red;
+    padding: 20px;
+}
+.container h2 {
+    transition-property: padding-left, color;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.container h2:hover {
+    transition-delay: 1s;
+    padding-left: 50px;
+}
+.btn {
+    display: inline-block;
+    margin: 50px 100px;
+    position: relative;
+    width: 100px;
+    background-color: rgb(13, 0, 255);
+    height: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 500;
+    color: aliceblue;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+.btn::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 0px;
+    height: 100%;
+    background-color: aqua;
+    right: 0;
+    top: 0;
+    /* border-radius: 10px; */
+    transition: width 0.6s;
+}
+.btn:hover::before {
+    left: 0;
+    width: 100%;
+}
+.form label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 999px;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+.form label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    right: 31px;
+    visibility: hidden;
+    border-radius: 999px;
+    transition: 0.4s;
+    transition-property: right, visibility;
+}
+.form label::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-color: aqua;
+    border-radius: 50%;
+    transition: 0.4s;
+    z-index: 1;
+    transition-property: transform, background-color;
+}
+#checkme:checked ~ label::before {
+    transform: translateX(30px);
+}
+#checkme:checked ~ label::after {
+    visibility: visible;
+    right: 0;
+}
+.tilteh3 {
+    position: relative;
+}
+.tilteh3::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "F8 học lập trình để đi làm";
+    color: aqua;
+    height: 0px;
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+.tilteh3:hover::after {
+    height: 102%;
+}
