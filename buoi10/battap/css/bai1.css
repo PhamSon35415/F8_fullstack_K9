@@ -67,6 +67,8 @@
     padding: 20px;
     cursor: pointer;
     margin-bottom: 5px;
+    /* background-color: #a26f5a; */
+    transform-origin: center;
 }
 .stage-content {
     text-align: right;
@@ -94,15 +96,12 @@
     transition: transform 0.3s linear;
 }
 /* hover */
-.stage:hover {
-    transform: scalex(-1);
-}
-.stage:hover .stage-content {
-    transform: scalex(-1);
-}
+.stage:hover,
+.stage:hover .stage-content,
 .stage:hover .stage-time {
     transform: scalex(-1);
 }
+
 .stage:hover .stage-content {
     text-align: left;
 }
