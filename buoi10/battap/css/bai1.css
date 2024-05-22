@@ -96,7 +96,7 @@
     transition: transform 0.3s linear;
 }
 /* hover */
-.stage:hover,
+/* .stage:hover,
 .stage:hover .stage-content,
 .stage:hover .stage-time {
     transform: scalex(-1);
@@ -104,8 +104,8 @@
 
 .stage:hover .stage-content {
     text-align: left;
-}
-.stage:hover .btn {
+} */
+.btn:hover {
     background-color: #a26f5a;
 }
 /*  */
