@@ -1,0 +1,114 @@
+/* 
+-min (value1,value2,...) :đặt giá trị tối da vd min(500px,100%) khi kích thước mà hình lớn hơn 500px thì lấy 500px và khi nhỏ hơn thì sẽ lấy 100%
+-max(value1,value2,...) :đăt giá trị tối thiểu
+-clamp(min,ideal,max) :đặt giá trị trong khoảng min max ưu tiên ideal
+
+
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+.header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+li {
+    margin-right: 20px;
+    display: inline-block;
+}
+li a {
+    font-weight: 600;
+    color: rgb(28, 28, 28);
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background-color: aqua;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 6px;
+    margin-left: 20px;
+}
+.right-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+}
+.left-menu {
+    display: none;
+    padding: 5px;
+}
+.box-shadow {
+    position: fixed;
+    display: block;
+    inset: 0;
+    background-color: rgba(30, 30, 30, 0.371);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    transition-property: opacity, visibility;
+}
+@media screen and (max-width: 991px) {
+    .header {
+        padding: 0 15px;
+    }
+    .menu {
+        margin: 0;
+        display: block;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        bottom: 0;
+        min-width: 250px;
+        translate: -100%;
+        transition: translate 0.4s ease;
+        z-index: 1;
+        background-color: rgb(72, 72, 72);
+    }
+    .menu li a {
+        color: #fff;
+        padding: 20px 0;
+    }
+    .menu li {
+        margin: 15px 10px;
+        display: block;
+    }
+    .left-menu {
+        display: block;
+    }
+    #checkbox:checked ~ .menu {
+        translate: 0%;
+    }
+    #checkbox:checked ~ .box-shadow {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@media screen and (max-width: 600px) {
+    .contact {
+        display: none;
+    }
+}

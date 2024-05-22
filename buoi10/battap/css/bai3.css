@@ -1,0 +1,132 @@
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #fafafa;
+}
+.container {
+    width: 1100px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0px 20px;
+    font-family: "Inter", sans-serif;
+}
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: #363e50;
+}
+.desc {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: #7a7a7a;
+}
+.group-form {
+    width: 50%;
+    margin-bottom: 30px;
+}
+input,
+select {
+    padding-top: 15px;
+    width: 100%;
+    height: 50px;
+    padding-left: 19px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.2s ease;
+    transition-property: outline, background-color;
+}
+input,
+select,
+textarea {
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+}
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 1px solid rgb(181, 181, 250);
+}
+input:not(:placeholder-shown),
+textarea:not(:placeholder-shown) {
+    background-color: rgb(239, 239, 255);
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding-left: 19px;
+    padding-top: 22px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.2s ease;
+    transition-property: outline, background-color;
+}
+.textarea {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    column-gap: 20px;
+}
+.group-form {
+    position: relative;
+}
+.group-form label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #7a7a7a;
+    font-weight: 500;
+    transition: 0.2s ease;
+    transition-duration: top, font-size;
+    pointer-events: none;
+}
+.textarea label {
+    top: 30px;
+    transition: 0.2s ease;
+    transition-duration: top, font-size;
+}
+select {
+    font-size: 17px;
+    padding-left: 19px;
+    color: #7a7a7a;
+    font-weight: 500;
+    padding-top: 0;
+}
+button {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: 55px;
+    border-radius: 99px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    background-color: rgba(1, 1, 212, 0.632);
+    font-weight: 500;
+    transition: 0.2s ease;
+    transition-property: background-color, color, border;
+}
+button:hover {
+    background-color: transparent;
+    color: rgba(1, 1, 212, 0.632);
+    border: 1px solid rgba(1, 1, 212, 0.632);
+}
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: 20%;
+    font-size: 14px;
+}
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+    top: 12px;
+    font-size: 14px;
+}

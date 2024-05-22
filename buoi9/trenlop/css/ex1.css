@@ -61,14 +61,26 @@ Transition
     transform-delay:thời gian
     transition-timing-function: ; thiết lập tốc độ khi di chuyển
     + ease ->mặc định chậm nhanh chậm
-    + ease-in ->chậm nhanh
+    + ease-in ->chậm nhanh đần
     + ese-out ->nhanh chậm
     + ease-in-out ->chậm nhanh chậm
     + ease-in-on ->chuyển động đều
     + linear ->tốc độ đều
     + cubic-bezier (p1,p2,p3,p4)->tốc độ tùy chỉnh
     transition: property duration delay timing
-    
+transform: thay doi hinh dang html
++ rotate: xoay
++ scale: thay đổi kích thước
++ translate: di chuyển
++ skew: nghiêng
++ perspective: tạo hiệu ứng 3d
++ perspective-origin: gốc tạo hiệu ứng 3d
++ transform-style: thiết lập cách tạo hiệu ứng 3d
++ transform-origin: gốc tạo hiệu ứng 3d
+
+
+
+
 */
 * {
     box-sizing: border-box;
