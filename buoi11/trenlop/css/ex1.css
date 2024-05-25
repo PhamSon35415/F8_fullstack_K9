@@ -1,0 +1,85 @@
+/* transform: thay doi hinh dang html
++ rotate: xoay theo trục z
++ rotateX: xoay theo trục x
++ rotateY: xoay theo trục y
++ scale: thay đổi kích thước
++ translate: di chuyển
++ skew:(độ) nghiêng
++ transform-origin: gốc tạo hiệu ứng
+các thuộc tính dc tách ra
++ rotate
++ scale
++ translate
+
+ */
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: 0.4s ease;
+}
+.wrapper {
+    padding: 50px;
+    border: 1px solid red;
+    position: relative;
+}
+.box:hover {
+    translate: -100px -100px;
+}
+.left,
+.right {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    background-color: aqua;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.left {
+    left: 10px;
+}
+.right {
+    right: 10px;
+}
+.form {
+    margin: 30px;
+}
+label {
+    position: relative;
+    user-select: none;
+}
+label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /* background-color: aqua; */
+    margin-right: 8px;
+    border: 2px solid blue;
+    transform: translateY(25%);
+}
+label::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 15px;
+    height: 5px;
+    margin-right: 8px;
+    border: 2px solid blue;
+    border-top: none;
+    border-right: none;
+    rotate: -45deg;
+    top: 0px;
+    left: 1px;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+input:checked + label::after {
+    opacity: 1;
+}

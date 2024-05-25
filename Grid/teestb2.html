@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Effect</title>
+    <style>
+        .container {
+            width: 200px;
+            margin: 50px auto;
+        }
+
+        .list {
+            position: relative;
+            /* Đặt ul ở vị trí tương đối */
+            padding: 0;
+            list-style: none;
+        }
+
+        .item {
+            perspective: 800px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            /* Định vị tuyệt đối so với ul */
+            top: 10px;
+            /* Cách top của ul 10px */
+            left: 0;
+            /* Căn trái */
+            transition: transform 1s;
+            transform-origin: top;
+            transform-style: preserve-3d;
+            border: 1px solid red;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        .item:hover .card {
+            transform: rotateX(-45deg);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .back {
+            background: lightcoral;
+            transform: rotateX(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="list">
+            <li class="item">
+                <label><input type="radio" name="">
+                    Simple slideshow
+                </label>
+                <div class="card">
+                    <div class="front">
+                        Front
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi vero, assumenda enim
+                            laudantium maiores, id eveniet iure velit quod autem blanditiis, earum voluptate dolor
+                            repudiandae magni totam nesciunt illo et.</p>
+                    </div>
+                    <div class="back">
+                        Back
+                        <p>Back side content goes here.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <label><input type="radio" name="">
+                    Another option
+                </label>
+            </li>
+            <li class="item"><label><input type="radio" name=""> Another option</label></li>
+            <li class="item"><label><input type="radio" name=""> Another option</label></li>
+        </ul>
+    </div>
+</body>
+
+</html>

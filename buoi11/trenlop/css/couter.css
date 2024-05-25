@@ -1,0 +1,37 @@
+/* 
+tạo bộ đếm
+counter-reset: tenbodem
+2. bắt dầu (áp dụng cho select lặp lại)
+    counter-increment: ;
+3. hiển thị bộ đếm
+counter(tenbodem)
+
+*/
+
+.box h2::before {
+    content: "#" counter(dem);
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    color: red;
+    background-color: aqua;
+    border-radius: 50%;
+}
+.box {
+    margin-left: 60px;
+    counter-reset: dem;
+}
+h2 {
+    counter-increment: dem;
+}
+.children {
+    margin-left: 30px;
+    counter-reset: dem2;
+}
+.children h2 {
+    counter-increment: dem2;
+}
+.children h2::before {
+    content: counter(dem) "." counter(dem2);
+}

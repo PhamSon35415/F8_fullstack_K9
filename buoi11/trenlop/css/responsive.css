@@ -1,0 +1,47 @@
+/* 
+- Thiết kế web thích ứng với các thiết bị khác nhau
+- trước khi có responsive ==>Adaptive 
+- responsive sử udung css để ẩn hiện
+
+
+BreakPoint 
+Diểm dừng kích thước màn hình mà tại diểm đó giao điện sẽ thay đổi 
+không có breakpoint cố ding
+các breakpoint phổ biến
+
+media queries
+@media all|screen|print and (min-width:value) and  (max-width: value){
+}
+
+<576px
+≥576px
+≥768px
+≥992px
+≥1200px
+xxl	≥1400px
+*/
+body {
+    background-color: aqua;
+}
+@media screen and (max-width: 1399px) {
+    body {
+        background-color: aqua;
+    }
+}
+@media screen and (max-width: 1199px) {
+    body {
+        background-color: rgb(255, 0, 0);
+    }
+}
+@media screen and (max-width: 991px) {
+    body {
+        background-color: rgb(0, 255, 8);
+    }
+}
+@media screen and (max-width: 767px) {
+    body {
+        background-color: rgb(255, 0, 204);
+    }
+}
+@media screen and (max-width: 575px) {
+}
