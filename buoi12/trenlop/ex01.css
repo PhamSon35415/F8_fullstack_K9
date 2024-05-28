@@ -1,0 +1,18 @@
+/* 
+container khung của các section
+ row ==> flex container
+ col-(number) ==> flex item
+ ==> number tu 1=>12
+
+
+ >=576px col-sm-number
+ >=768px col-md-number
+ >=992px col-lg-number
+ >=1200px col-xl-number
+ >=1400px col-xx-number
+ <576 col-number
+
+*/
+.product-item {
+    background-color: aqua;
+}

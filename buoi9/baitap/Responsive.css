@@ -1,0 +1,138 @@
+@media screen and (max-width: 1399px) {
+    .header-heading {
+        font-size: 4.8rem;
+        line-height: 58px;
+    }
+    .section-desc {
+        font-size: 16px;
+        max-width: 100%;
+    }
+    .container {
+        max-width: 1140px;
+    }
+    .body-service-item {
+        width: 22%;
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    .header-heading {
+        font-size: 3.8rem;
+    }
+    .body-service-item {
+        width: 27%;
+    }
+    .section-heading {
+        font-size: 3.2rem;
+        line-height: 44px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    .herder-top {
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+    .service .section-heading,
+    .feature-right {
+        width: 100%;
+    }
+
+    .header-right {
+        position: absolute;
+        top: 46px;
+        left: 50%;
+        row-gap: 20px;
+        flex-direction: column;
+        transform: translateX(-50%);
+    }
+    #check_me:checked ~ .herder-top {
+        height: 240px;
+    }
+    .menu {
+        row-gap: 20px;
+        flex-direction: column;
+    }
+    label[for="check_me"] {
+        display: block;
+    }
+    .header-body {
+        flex-wrap: wrap;
+    }
+    .header-body-right,
+    .header-body-left,
+    .delivery-right {
+        width: 100%;
+    }
+    .body-service-item {
+        width: 31%;
+    }
+
+    .feature-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .delivery-left {
+        width: 100%;
+        order: 1;
+    }
+    .download-left,
+    .download-right {
+        width: 100%;
+    }
+
+    .column-item,
+    .column-item1 {
+        width: 100%;
+        text-align: center;
+    }
+    .column-item1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .footer-column2,
+    .footer-column1 {
+        width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        max-width: 540px;
+    }
+    .header-heading {
+        font-size: 3rem;
+    }
+    .body-service-item {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .section-heading,
+    .delivery-heading,
+    .download-heading,
+    .ask-feature,
+    .header-heading,
+    .section-desc {
+        text-align: center;
+    }
+
+    .all-app {
+        display: flex;
+        justify-content: center;
+    }
+    .delivery-left,
+    .header-body-left,
+    .feature-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
