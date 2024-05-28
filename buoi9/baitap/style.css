@@ -30,7 +30,7 @@ a {
     margin-top: 50px;
     position: relative;
     height: 46px;
-    transition: height 0.5s ease;
+    transition: height 0.3s ease;
 }
 .logo {
     width: 155px;
@@ -110,7 +110,7 @@ a {
     top: -18px;
 }
 .header-body {
-    margin-top: 100px;
+    padding-top: 60px;
     margin-bottom: 130px;
     display: flex;
     justify-content: space-between;
@@ -481,11 +481,13 @@ label[for="check_me"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.7;
     color: #8c8c8c;
     margin-bottom: 40px;
+    column-gap: 10px;
 }
 .footer-bottom-right {
     display: flex;

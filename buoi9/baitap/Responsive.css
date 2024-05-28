@@ -135,4 +135,8 @@
         flex-direction: column;
         align-items: center;
     }
+    .footer-bottom {
+        justify-content: center;
+        text-align: center;
+    }
 }
