@@ -1,0 +1,119 @@
+/* 
+thuộc tính animation
+- tạo hiệu ứng
+- viết kịch bản cho 
+@keyframes tên {
+    0% {}
+    value% {}
+    100% {}
+cú pháp của animation 
+animation-name: tên
+animation-duration: ; thời gian chạy
+animation-timing-function: ;
+animation-delay: ; thời gian delay
+animation-iteration-count: ; số lần chạy hiệu ứng (infinite) chạy vô HẠN
+animation: 
+*/
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.box {
+    margin-top: 100px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    position: relative;
+}
+.box span {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+    animation: move 3s linear infinite;
+    top: 0;
+    left: 0;
+}
+.load {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(191, 191, 191);
+    background-image: conic-gradient(
+        var(--color) calc(var(--rate) * 1%),
+        transparent 0
+    );
+    border-radius: 50%;
+    position: relative;
+}
+.load::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+}
+.load::before {
+    content: "75%";
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+@keyframes sp {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mv {
+    height: 200px;
+    margin-top: 60px;
+    display: flex;
+    align-items: flex-end;
+    column-gap: 10px;
+}
+.mv span {
+    width: 15px;
+    height: 20px;
+    background-color: aqua;
+    border-radius: 5px;
+    animation: mv 1s ease-in-out infinite;
+}
+.mv span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.mv span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.mv span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+@keyframes move {
+    25% {
+        left: calc(100% - 50px);
+        top: 0px;
+    }
+    50% {
+        left: calc(100% - 50px);
+        top: calc(100% - 50px);
+    }
+    75% {
+        left: 0;
+        top: calc(100% - 50px);
+    }
+}
+@keyframes mv {
+    50% {
+        height: 60px;
+    }
+}

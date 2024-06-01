@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./gird_system.css"> -->
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="bg"></div>
+        <input type="radio" name="check" id="input1" hidden checked>
+        <input type="radio" name="check" id="input2" hidden>
+        <div class="item-left">
+            <i class="fa-solid fa-robot fa-2xl" style="color: #ffffff;  height: 60px;"></i>
+            <div class="left-heading">
+                <p class="top-title">WELCOME TO</p>
+                <h1 class="title">VIKINGER</h1>
+                <p class="desc">The next generation social network & community! Connect with your friends and play with
+                    our quests and badges gamification system!</p>
+            </div>
+            <div class="directional">
+
+                <label for="input1" class="btn-left">Login</label>
+
+
+                <label for="input2" class="btn-right">Register</label>
+
+            </div>
+        </div>
+        <div class="item-right">
+            <div class="content-right loginform1">
+                <img src="./img/rocket.webp" class="rocket">
+                <h3 class="right-title">Account Login</h3>
+                <form class="form-login">
+                    <div class="form-gr">
+                        <input type="text" class="input-it" id="name-login" placeholder=" " autofocus>
+                        <label for="name-login" class="label-login">Username or Email</label>
+                    </div>
+                    <div class="form-gr">
+                        <input type="password" class="input-it" id="pass-login" placeholder=" ">
+                        <label for="pass-login" class="label-login">Password</label>
+                    </div>
+                    <div class="form-gr form-check">
+                        <div>
+                            <input type="checkbox" name="checkme" id="checkme" class="input-checkbox" hidden>
+                            <label for="checkme" class="label-checkbox">Remember Me</label>
+                        </div>
+                        <div>
+                            <a href="#!" class="forgot">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <button class="btn-login">Login to your Account</button>
+                </form>
+                <div class="login-bt">
+                    <p>Login with your Social Account</p>
+                    <div class="list-media">
+                        <a href="#!" class="media-item facebook">
+                            <i class="fa-brands fa-square-facebook"></i>
+                        </a>
+                        <a href="#!" class="media-item twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#!" class="media-item twitch">
+                            <i class="fa-brands fa-twitch"></i>
+                        </a>
+                        <a href="#!" class="media-item youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="content-right account">
+                <img src="./img/rocket.webp" class="rocket">
+                <h3 class="right-title">Create your Account!</h3>
+                <form class="form-login">
+                    <div class="form-gr">
+                        <input type="text" class="input-it" id="name-login" placeholder=" " autofocus>
+                        <label for="name-login" class="label-login">Your Email</label>
+                    </div>
+                    <div class="form-gr">
+                        <input type="text" class="input-it" id="username" placeholder=" ">
+                        <label for="username" class="label-login">User name</label>
+                    </div>
+                    <div class="form-gr">
+                        <input type="password" class="input-it" id="pass-login" placeholder=" ">
+                        <label for="pass-login" class="label-login">Password</label>
+                    </div>
+                    <div class="form-gr">
+                        <input type="password" class="input-it" id="repeat-pass" placeholder=" ">
+                        <label for="repeat-pass" class="label-login">Repeat Password</label>
+                    </div>
+                    <div class="form-gr form-check">
+                        <div>
+                            <input type="checkbox" name="checkme" id="checkme1" class="input-checkbox" hidden>
+                            <label for="checkme1" class="label-checkbox">Send me news and updates via email</label>
+                        </div>
+                    </div>
+                    <button class="btn-login btn-account">Register Now!</button>
+                </form>
+                <p class="contact-desc desc">You'll receive a confirmation email in your inbox with a link to activate
+                    your
+                    account. If you have any problems, <a href="#!" class="contact">contact us</a>!</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
