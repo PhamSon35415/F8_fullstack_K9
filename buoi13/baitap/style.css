@@ -1,7 +1,13 @@
-* {
+*,
+::after,
+::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+::selection {
+    background: #19dff0; /* Thay đổi màu nền */
+    color: #fff; /* Thay đổi màu chữ */
 }
 .container {
     width: 100%;
@@ -70,6 +76,11 @@
     font-weight: 500;
     color: #fff;
 }
+.login-bt p {
+    color: #3e3f5e;
+    font-size: 14px;
+    font-weight: 700;
+}
 .btn-left,
 .btn-right {
     display: inline-block;
@@ -82,16 +93,61 @@
     line-height: 54px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: 0.3s linear;
+    transition-property: background-color, color, left;
 }
 .btn-left {
     border-radius: 10px 0px 0px 10px;
     border-right-width: 1px;
+    position: relative;
+    overflow: hidden;
+}
+.btn-left::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 181px;
+    height: 56px;
+    top: -2px;
+    left: 100%;
+    background-color: #ffffff;
+    transition: 0.3s linear;
+    transition-property: left;
+}
+.btn-right span,
+.btn-left span {
+    position: relative;
+    z-index: 1;
+}
+.btn-right::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 181px;
+    height: 56px;
+    top: -2px;
+    left: -101%;
+    background-color: #ffffff;
+    transition: 0.3s linear;
+    transition-property: left;
 }
 .btn-right {
     border-radius: 0px 10px 10px 0px;
     border-left-width: 1px;
+    position: relative;
+    overflow: hidden;
 }
+#input2:checked ~ .item-left .btn-right::before {
+    left: 0;
+}
+#input1:checked ~ .item-left .btn-left::before {
+    left: 0;
+}
+#input1:checked ~ .item-left .btn-left,
+#input2:checked ~ .item-left .btn-right {
+    color: black;
+}
+
 .directional {
     display: flex;
     justify-content: center;
@@ -135,7 +191,7 @@
     background-color: #fff;
     border: 1px solid #dedeea;
     color: #3e3f5e;
-    transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.3s ease;
 }
 .label-login {
     position: absolute;
@@ -151,20 +207,25 @@
     transition-property: font-size, transform;
     pointer-events: none;
     background-color: #fff;
+    font-weight: 600;
 }
 .input-it:focus + .label-login,
 .input-it:not(:placeholder-shown) + .label-login {
-    transform: translateY(-35px);
-    font-size: 10px;
+    transform: translateY(-37px);
+    font-size: 12px;
+}
+.input-it:focus {
+    border-color: #3763d2;
 }
 .label-checkbox {
     position: relative;
     padding-left: 28px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 22px;
     cursor: pointer;
     user-select: none;
+    color: #525254;
 }
 .label-checkbox::before {
     content: "";
@@ -191,7 +252,7 @@
     opacity: 0;
     top: 50%;
     color: #fff;
-    left: 3.5px;
+    left: 3px;
     transform: translateY(-45%);
     transition: 0.2s ease;
     transition-property: opacity;
@@ -279,22 +340,31 @@
 .youtube {
     background-color: #fd434f;
 }
-#input1:checked ~ .item-left .btn-left,
-#input2:checked ~ .item-left .btn-right {
-    background-color: #fff;
-    color: black;
-}
+
 .loginform1 {
     position: absolute;
-    transition: 0.5s;
+    transition: 0.8s;
     transition-property: transform, opacity, visibility;
+    transition-delay: 0.2s;
     z-index: 2;
 }
 #input2:checked ~ .item-right .loginform1 {
-    transform: translateX(50%);
+    transform: translateX(70%);
     opacity: 0;
     visibility: hidden;
 }
+.rocket {
+    transition: transform 0.2s ease;
+}
+#input1:checked ~ .item-right .rocket2 {
+    transform: rotate(45deg) scale(1.2);
+    /* rotate:45deg;
+    scale: 1.1; */
+}
+#input2:checked ~ .item-right .rocket1 {
+    transform: rotate(45deg) scale(1.2);
+}
+
 #input1:checked ~ .item-right .account {
     transform: translateX(50%);
     opacity: 0;
@@ -360,15 +430,5 @@
 
     .rocket {
         display: none;
-    }
-    #input2:checked ~ .item-right .loginform1 {
-        opacity: 0;
-        visibility: hidden;
-        /* display: none; */
-    }
-    #input1:checked ~ .item-right .account {
-        opacity: 0;
-        visibility: hidden;
-        /* display: none; */
     }
 }
