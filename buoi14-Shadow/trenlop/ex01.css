@@ -1,0 +1,25 @@
+/* 
+lưu trữ đư liệu tạm thời trong bộ nhó ram
+biến toàn cụ
+- khai báo trong :root
+- sử dụng ở khắp mọi nơi kể từ savij trí khai báo
+- 
+
+biến cụ bộ
+- kahi báo trong selecter cụ thể 
+- chỉ dc sử dụng trong selecter dó hoặc con của select đó
+ 
+
+biến trong css chỉ lưu trữ giá trị thuộc tính
+ 
+*/
+
+@import url(./variable.css);
+.box {
+    --x: red;
+    background-color: var(--primary-color);
+    color: var(--x);
+}
+#ok {
+    color: rgb(212, 0, 255);
+}

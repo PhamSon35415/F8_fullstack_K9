@@ -1,0 +1,12 @@
+// định nghĩa các mexi tương ứng
+@mixin screenMobile {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin screenTablet {
+    @media screen and (max-width: 991x) {
+        @content;
+    }
+}

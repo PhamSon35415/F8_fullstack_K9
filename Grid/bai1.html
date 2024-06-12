@@ -4,114 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bootstrap 5 Layout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .btn {
-            display: inline-block;
-            padding: 15px 50px;
-            background-color: aqua;
-            color: rgb(1, 2, 2);
-            border: none;
-            text-decoration: none;
-            position: relative;
+        .section {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            color: #fff;
         }
 
-        .btn span:nth-child(1) {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: black;
-            transition: width 0.2s linear;
+        .section-1 {
+            background-color: #f08a5d;
         }
 
-        .btn span:nth-child(2) {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 2px;
-            height: 0;
-            background-color: black;
-            transition: height 0.2s linear 0.2s;
+        .section-2 {
+            background-color: #b83b5e;
         }
 
-        .btn span:nth-child(3) {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: black;
-            transition: width 0.2s linear 0.4s;
+        .section-3 {
+            background-color: #6a0572;
         }
 
-        .btn span:nth-child(4) {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 2px;
-            height: 0;
-            background-color: black;
-            transition: height 0.2s linear 0.6s;
+        .section-4 {
+            background-color: #40394a;
         }
 
-        .btn:hover span:nth-child(odd) {
-            width: 100%;
+        .section-5 {
+            background-color: #2a363b;
         }
 
-        .btn:hover span:nth-child(even) {
-            height: 100%;
+        .section-6 {
+            background-color: #99b898;
         }
 
-        .tick {
-            margin-top: 30px;
-            position: relative;
-        }
-
-        .tick span:nth-child(1) {
-            position: absolute;
-            width: 2px;
-            height: 0;
-            left: 18px;
-            top: -8px;
-            background-color: aqua;
-            rotate: -45deg;
-            transition: height 0.2s linear;
-        }
-
-        .tick span:last-child {
-            position: absolute;
-            width: 2px;
-            left: 18px;
-            top: -8px;
-            height: 0;
-            rotate: 45deg;
-            background-color: aqua;
-            transition: height 0.2s linear 0.2s;
-        }
-
-        .btn:hover~.tick span {
-            height: 30px;
+        .section-7 {
+            background-color: #feceab;
         }
     </style>
 </head>
 
 <body>
-    <a href="#!" class="btn">
-        <span></span><span></span><span></span><span></span>
-        Button
-    </a>
-    <div class="tick">
-        <span></span>
-        <span></span>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-6 section section-1">GET UP TO 50% OFF</div>
+            <div class="col-6 section section-2">Trending & Hot</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 section section-3">Hello Summer 50%</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 section section-4">Section 4</div>
+            <div class="col-4 section section-5">Section 5</div>
+            <div class="col-4 section section-6">Section 6</div>
+        </div>
+        <div class="row">
+            <div class="col-12 section section-7">Buy it for the first time</div>
+        </div>
     </div>
 
-
-
-
-
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

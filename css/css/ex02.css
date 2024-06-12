@@ -1,0 +1,38 @@
+@charset "UTF-8";
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.box {
+  padding: 20px 0px;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: aqua;
+}
+
+.products {
+  padding: 20px 0px;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.post {
+  padding: 20px 0px;
+  width: 1200px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 2px 0px red;
+}
+
+/*
+kế thừa 
+@extend 
+1.1 @extend selecter
+1.2 @extend placeholder
+@mixin và @include
+function thuongf dungf thuw vien
+*/
+
+
+/*# sourceMappingURL=ex02.css.map */

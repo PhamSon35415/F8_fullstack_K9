@@ -1,0 +1,9 @@
+@use "./partials/reset";
+@use "./partials/base";
+
+@use "./layouts/header.scss";
+@use "./layouts/footer.scss";
+
+@use "./pages/home";
+@use "./pages/product";
+@use "./pages/about";

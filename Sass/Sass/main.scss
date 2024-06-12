@@ -1,0 +1,5 @@
+@use "./partials/variables";
+@forward "./partials/variables" as var-*; // chuyển tiếp các đữ liệu trong file khác dùng
+.main {
+    color: variables.$primary-color;
+}

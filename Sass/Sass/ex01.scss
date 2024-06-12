@@ -1,0 +1,37 @@
+// nester selectors
+/*
+
+
+
+
+*/
+@import "./partials/variables";
+$size: 20; // font-size: $size + các đơn vị trừ % thì phải + với 0%;
+$property: background-color;
+$select: ".header";
+$number: 5;
+
+#{$select}-#{$number} {
+    //.header-5
+    color: blue;
+}
+#{$select + "-" + $number} {
+    //.header-5
+    color: blue;
+}
+#{$select} {
+    color: blue;
+}
+.header {
+    padding: 30px 0;
+    #{$property}: $primary-color;
+    color: $secondaryColor;
+    .logo {
+        float: left;
+        .img {
+            width: 100%;
+            height: auto;
+            rotate: $deg;
+        }
+    }
+}

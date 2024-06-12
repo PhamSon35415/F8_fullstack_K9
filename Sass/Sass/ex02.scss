@@ -1,0 +1,92 @@
+// .box {
+//     padding: 30px 0;
+//     .logo {
+//         img {
+//             max-width: 200px;
+//             height: auto;
+//         }
+//     }
+//     .content {
+//         background-color: aqua;
+//         .text {
+//             color: red;
+//             &:hover {
+//                 color: blue;
+//             }
+//             &::after {
+//                 content: "x";
+//             }
+//             + img {
+//                 background-color: aliceblue;
+//             }
+//         }
+//     }
+// }
+//extend selecter
+// .box {
+//     padding: 20px 0px;
+//     width: 1200px;
+//     margin: 0 auto;
+// }
+// .products {
+//     @extend .box;
+//     background-color: red;
+// }
+// .post {
+//     @extend .box;
+//     box-shadow: 1px 1px 2px 0px red;
+// }
+
+// 1.2 @extend placeholder
+// %base {
+//     padding: 20px 0px;
+//     width: 1200px;
+//     margin: 0 auto;
+// }
+// .box {
+//     @extend %base;
+//     background-color: aqua;
+// }
+// .products {
+//     @extend %base;
+//     background-color: red;
+// }
+// .post {
+//     @extend %base;
+//     box-shadow: 1px 1px 2px 0px red;
+// }
+
+// @mixin và @include
+
+@mixin base {
+    padding: 20px 0px;
+    width: 1200px;
+    margin: 0 auto;
+}
+@mixin container($width, $spacer: 0) {
+    .container {
+        max-width: $width;
+        margin: $spacer auto;
+    }
+}
+@include container(1200px, 30px);
+.box {
+    @include base;
+    background-color: aqua;
+}
+.products {
+    @include base;
+    background-color: red;
+}
+.post {
+    @include base;
+    box-shadow: 1px 1px 2px 0px red;
+}
+/*
+kế thừa 
+@extend 
+1.1 @extend selecter
+1.2 @extend placeholder
+@mixin và @include
+function thuongf dungf thuw vien
+*/

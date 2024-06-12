@@ -1,0 +1,331 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+html {
+    font-family: "Nunito", sans-serif;
+    font-size: 62.5%;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-color: #efefef;
+}
+:root {
+    --color: #ffa500;
+}
+.header {
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 10px 0px;
+    z-index: 1000;
+}
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: width 0.2s ease;
+    position: relative;
+}
+.list-menu {
+    display: flex;
+}
+.list-menu .menu-item a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+    transition: 0.3s ease;
+    transition-duration: color, font-size;
+}
+.menu-item a:hover {
+    color: var(--color);
+}
+.logo a {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+    transition-duration: color, font-size;
+}
+.logo a span {
+    color: var(--color);
+}
+.change-logo {
+    color: var(--color);
+    font-size: 2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--color);
+}
+.right-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.btn {
+    font-size: 1.7rem;
+    padding: 10px 20px;
+    border-radius: 999px;
+    color: #ffffff;
+    background-color: var(--color);
+    text-align: center;
+    border: 2px solid var(--color);
+    transition: 0.3s ease;
+    transition-duration: background-color, font-size, color;
+}
+.btn:hover {
+    background-color: #ffa6001e;
+    color: #000000;
+}
+.btn-header:hover {
+    color: #fff;
+}
+.btn-header {
+    color: #191919;
+}
+.bar {
+    color: #fff;
+    font-weight: 900;
+    display: none;
+}
+.banner {
+    width: 90%;
+    margin: 75px auto 0;
+    min-height: 80vh;
+    background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)),
+        url(https://stravelhtml.vercel.app/mumbai/images/home-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.outline-text {
+    /* color: transparent; */
+    font-size: 4vw;
+    color: transparent; /* Màu của văn bản là trong suốt */
+    -webkit-text-stroke-width: 0.5px; /* Độ rộng của đường viền */
+    -webkit-text-stroke-color: var(--color);
+}
+.header-title {
+    font-size: 5vw;
+    color: #fff;
+    font-weight: 700;
+}
+.content-banner {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.desc {
+    font-size: 1.5rem;
+    color: #fff;
+    /* width: 80%; */
+    margin-bottom: 20px;
+}
+.sale {
+    position: absolute;
+    padding: 10px 30px;
+    top: 95%;
+    width: 80%;
+    height: 8vh;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.endow {
+    font-size: 3.8rem;
+    color: var(--color);
+    width: 48%;
+    font-weight: 600;
+}
+.btn-sale {
+    width: 48%;
+    height: 45px;
+    margin: auto;
+    color: #fff;
+}
+.btn-sale:hover {
+    color: var(--color);
+}
+.about .container {
+    margin-top: 180px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-section {
+    color: var(--color);
+    font-size: 2rem;
+}
+.heading-section {
+    color: #333;
+    font-size: 4em;
+}
+.desc-section {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.7em;
+    color: #555;
+    line-height: 2;
+}
+.location {
+    margin-top: 60px;
+}
+.btn-about {
+    display: inline-block;
+    margin-top: 20px;
+}
+.img-about {
+    width: 90%;
+    border-radius: 5px;
+}
+.top-about,
+.heading-about {
+    text-align: center;
+}
+
+.pro-item {
+    width: 21%;
+    text-align: center;
+}
+.list-product {
+    row-gap: 20px;
+}
+.pro-img {
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.pro-heading {
+    padding-top: 10px;
+    font-size: 2rem;
+    color: #333;
+}
+.pro-desc {
+    /* margin-bottom: 2em; */
+    padding: 1rem 0;
+    font-size: 1.4em;
+    color: #aaa;
+    line-height: 2;
+}
+.content {
+    background-color: #ffffff;
+    padding: 0px 20px 30px;
+    border-radius: 0px 0px 8px 8px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+.content-img {
+    height: 190px;
+    width: 100%;
+    overflow: hidden;
+}
+.content-img:hover .pro-img {
+    transform: scale(1.1);
+}
+.xemthem {
+    float: right;
+    font-size: 1.7rem;
+    color: var(--color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 15px;
+}
+.xemthem span {
+    transition: transform 0.3s ease;
+}
+.xemthem:hover span {
+    transform: translateX(-15px);
+}
+.service {
+    margin-top: 80px;
+    margin-bottom: 1000px;
+}
+.item-service {
+    background-color: #ffa500;
+}
+.list-service {
+    width: 100%;
+    display: flex;
+}
+.content-service {
+    background-color: #d57a7a;
+}
+
+@media screen and (max-width: 991px) {
+    .header-container {
+        max-width: 100%;
+        padding: 0;
+        /* margin: 0; */
+    }
+    .list-menu .menu-item a {
+        font-size: 1.4rem;
+    }
+    .logo a {
+        font-size: 2.2rem;
+    }
+    .btn {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .bar {
+        display: inline-block;
+    }
+    .list-menu {
+        position: absolute;
+        inset: 120% 0 auto 0;
+        background-color: rgb(25, 25, 25);
+        z-index: 1000;
+        color: rgb(101, 88, 114);
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        display: inline-block;
+        transition: height 0.3s ease;
+    }
+
+    .logo {
+        margin-left: 150px;
+    }
+    .header-container {
+        justify-content: space-around;
+    }
+    .right-header {
+        width: 25%;
+    }
+    #check-bar:checked ~ .nav .list-menu {
+        height: 180px;
+    }
+    .desc {
+        font-size: 1.3rem;
+    }
+}

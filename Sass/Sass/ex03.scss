@@ -1,0 +1,96 @@
+// responsive
+@import "./partials/media.scss";
+
+@include screenTablet {
+    .header {
+        padding: 50px 0px;
+        background-color: aquamarine;
+    }
+}
+@include screenTablet {
+    .header {
+        padding: 30px 0px;
+    }
+}
+// Toán tử trong scss
+// 1 só học: +,-,*,/,%
+//  2 toán tử so sánh =, >, <,<=,>=<,!=
+//  3 toán tử logic and,or,not
+
+// kiểu đữ liệu
+// 1 chuỗi :đăt tron đấu nháy
+// 2 số
+// 3 thuộc tính và giá trị css
+// 4 boolean: true/false
+// 5 List
+// 6 Map
+// $a: "f8";
+// $b: 4;
+// $sizes: 10px, 20px, 30px;
+// $poi: (
+//     sm: 576,
+//     md: 300,
+// );
+// .box {
+//     font-family: $a;
+//     font-size: $b + 10px;
+// }
+// rẽ nhánh @if @else
+// cú pháp @if diều kiện {code}
+// cú pháp đầy đủ @if điều kiện {code} @else{code}
+// $a: 1;
+// @if $a >= 10 {
+//     .box {
+//         background-color: aqua;
+//     }
+// } @else {
+//     .item {
+//         color: black;
+//     }
+// }
+// vòng lặp
+// @for
+// @each
+// $number: 12;
+// @for $i from 1 through $number {
+//     $x: 30 * $i;
+//     .column-#{$i} {
+//         @if $i%2==0 {
+//             $x: $x + px;
+//         } @else {
+//             $x: $x + 0%;
+//         }
+//         width: $x;
+//     }
+// }
+// $sizes: 20px, 30px, 40px, 50px, 60px;
+// $lenght: lenght($sizes);
+// $count: 0;
+// @each $size in $sizes {
+//     $count: $count + 1;
+//     .item-#{$size} {
+//         @if ($count == $lenght) {
+//             width: 0;
+//         } @else {
+//             width: $size * 2;
+//         }
+//     }
+// }
+// $sizes: (small, 20px, normal), (medium, 40px, 600), (larger, 80px, 800);
+// @each $name, $size, $w in $sizes {
+//     .item-#{$name} {
+//         font-size: $size;
+//         font-weight: $w;
+//     }
+// }
+$poi: (
+    sm: 576px,
+    md: 767px,
+);
+@each $name, $size in $poi {
+    @media screen and (max-width: $size) {
+        .col-#{$name} {
+            width: 100%;
+        }
+    }
+}

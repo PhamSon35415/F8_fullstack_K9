@@ -1,0 +1,5 @@
+@use "./header";
+@use "./footer" as foter1; //đổi tên để gọi ra
+.product {
+    background-color: header.$bg-color;
+}

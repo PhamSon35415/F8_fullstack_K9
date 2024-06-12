@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+$containerWidth: 1200px;
+$maxColumn: 12;
+$breakpoint: (
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+    xxl: 1400,
+);
+.container {
+    max-width: $containerWidth;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+@mixin column($name: "") {
+    @for $i from 1 through $maxColumn {
+        $width: calc(100% / 12 * $i);
+        $selector: ".col-";
+        $selectorOffset: ".offset-";
+        @if ($name!= "") {
+            $selector: $selector + $name + "-";
+            $selectorOffset: $selectorOffset + $name + "-";
+        }
+        #{$selector + $i} {
+            flex-basis: $width;
+            max-width: $width;
+        }
+        #{$selectorOffset + $i } {
+            margin-left: $width;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -20px;
+}
+[class^="col-"] {
+    padding: 0 10px 20px;
+}
+
+@include column();
+@each $name, $size in $breakpoint {
+    @media screen and (max-width:#{$size}px) {
+        @include column($name);
+    }
+}
+@media screen and (min-width: #{$containerWidth+100px}) {
+    .container {
+        padding: 0;
+    }
+}

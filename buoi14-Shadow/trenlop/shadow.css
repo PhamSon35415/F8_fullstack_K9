@@ -1,0 +1,29 @@
+/* 
+boxshadow: h-offset v-offset blur spread color
+text-shadow: h-offset v-offset blur color
+
+
+
+
+
+
+
+
+*/
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    margin: 0 auto;
+    box-shadow: 10px 10px 0px 0px chartreuse, 15px 15px green, 20px 20px red;
+}
+h2 {
+    font-size: 3.2rem;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0), -1px 1px 1px rgb(0, 0, 0),
+        -1px -1px 1px rgb(0, 0, 0), 1px -1px 1px rgb(0, 0, 0),
+        1px 1px 1px rgb(0, 0, 0), -1px 1px 1px rgb(0, 0, 0),
+        -1px -1px 1px rgb(0, 0, 0), 1px -1px 1px rgb(0, 0, 0);
+    color: #fff;
+    position: relative;
+}

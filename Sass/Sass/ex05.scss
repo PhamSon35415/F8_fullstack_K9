@@ -1,0 +1,4 @@
+@use "./main.scss";
+.ex {
+    color: main.$var-headerBackgroundColor;
+}

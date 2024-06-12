@@ -1,0 +1,56 @@
+//dịnh nghĩa các class hay dùng
+// ví dụ .btn,.btnsm,
+$color-btn-add: #46b20f;
+.desc-section {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.28; /* 127.604% */
+}
+.heading-section {
+    color: #2c2c2c;
+    text-align: center;
+    font-size: 3.2rem;
+
+    font-weight: 800;
+    line-height: 131.523%;
+}
+.btn-add {
+    width: 184px;
+    display: inline-flex;
+    padding: 13.333px 11.667px;
+    justify-content: center;
+    align-items: center;
+    gap: 8.333px;
+    border-radius: 6.667px;
+    background: $color-btn-add;
+    color: #fff;
+    text-align: center;
+    font-size: 16.667px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+.btn-add:hover {
+    outline: 2px solid $color-btn-add;
+    background-color: transparent;
+    color: $color-btn-add;
+}
+.btn-more {
+    display: flex;
+    padding: 11.667px 21.667px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.333px;
+    display: inline-block;
+    border-radius: 6.667px;
+    border: 0.833px solid $color-btn-add;
+    columns: #2c2c2c;
+    font-size: 16.667px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+.btn-more:hover {
+    background-color: $color-btn-add;
+    color: #fff;
+}

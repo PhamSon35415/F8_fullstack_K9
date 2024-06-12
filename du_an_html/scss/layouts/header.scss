@@ -1,0 +1,166 @@
+//style header dự án
+$bg-color-header: #fff;
+$color-content: #2c2c2c;
+$color-text-hover: #46b20f;
+.header {
+    z-index: 1000;
+    position: fixed;
+    inset: 0 0 auto 0;
+    background-color: $bg-color-header;
+    box-shadow: 0px 1.667px 8.333px 0px rgba(0, 0, 0, 0.15);
+    .container-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .bar {
+            display: none;
+        }
+        .shadow {
+            display: inline-block;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background-color: #0707076a;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            transition-property: visibility, opacity;
+        }
+        .header-menu {
+            display: flex;
+            align-items: center;
+            column-gap: 50px;
+            height: 75px;
+
+            .menu {
+                display: flex;
+                align-items: center;
+                column-gap: 30px;
+                .item-menu {
+                    margin-top: 27px;
+                    padding: 5px 10px 28px;
+                    color: $color-content;
+                    font-size: 1.67rem;
+                    font-weight: 600;
+                    line-height: 1.3;
+                    position: relative;
+                }
+                .item-menu:first-child {
+                    a {
+                        color: $color-text-hover;
+                    }
+
+                    border-bottom: 1px solid $color-text-hover;
+                }
+            }
+            .right-menu {
+                display: flex;
+                column-gap: 40px;
+            }
+            .icon-header {
+                margin-top: 10px;
+                color: black;
+                font-size: 1.67rem;
+                position: relative;
+            }
+            .fa-cart-shopping::after {
+                font-family: "Inter", sans-serif;
+                display: inline-block;
+                content: "3";
+                width: 13.333px;
+                height: 13.333px;
+                text-align: center;
+                line-height: 13.333px;
+                font-size: 1rem;
+                font-weight: 500;
+                border-radius: 50%;
+                background-color: #e05000;
+                color: #fff;
+                position: absolute;
+                top: -9px;
+                right: -5px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .header {
+        z-index: 1000;
+        position: fixed;
+        inset: 0 0 auto 0;
+        .container-header {
+            #check-menu:checked ~ .header-menu .menu {
+                transform: translateX(0);
+            }
+            #check-menu:checked ~ .shadow {
+                opacity: 1;
+                visibility: visible;
+            }
+            .logo {
+                position: absolute;
+                left: 50%;
+                right: 50%;
+                transform: translate(-40px);
+            }
+            .bar {
+                display: inline-block;
+                position: absolute;
+                left: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 12px;
+            }
+            .header-menu {
+                .menu {
+                    display: inline-block;
+                    background-color: #f9f5f5;
+                    justify-content: center;
+                    z-index: 1000;
+                    // width: 100%;
+                    inset: 0 60% 0 0;
+                    transform: translateX(-100%);
+                    position: fixed;
+                    transition: transform 0.3s ease;
+                    .item-menu {
+                        border: none !important;
+                    }
+                }
+                .right-menu {
+                    position: absolute;
+                    right: 10%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .header {
+        .container-header {
+            .header-menu {
+                .menu {
+                    .item-menu {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+    }
+}
+// @media screen and (max-width: 576px) {
+//     .header {
+//         .container-header {
+//             .header-menu {
+//                 .menu {
+//                     width: 100%;
+//                 }
+//             }
+//         }
+//     }
+// }
+// sm: 576,
+// md: 768,
+// lg: 992,
+// xl: 1200,
+// xxl: 1400,

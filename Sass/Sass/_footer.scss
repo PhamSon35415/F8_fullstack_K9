@@ -1,0 +1,6 @@
+$bg-color: green;
+$-font-size: 16px; //private thì thêm _ hoặc - chỉ dùng dc trong chính nó
+.footer {
+    background-color: red;
+    font-size: $-font-size;
+}
