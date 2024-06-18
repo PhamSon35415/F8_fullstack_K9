@@ -47,10 +47,10 @@
 .header .container-header .header-menu .menu .item-menu a {
   color: #2c2c2c;
 }
-.header .container-header .header-menu .menu .item-menu:first-child {
+.header .container-header .header-menu .menu .item-menu:hover {
   border-bottom: 1px solid #46b20f;
 }
-.header .container-header .header-menu .menu .item-menu:first-child a {
+.header .container-header .header-menu .menu .item-menu:hover a {
   color: #46b20f;
 }
 .header .container-header .header-menu .right-menu {

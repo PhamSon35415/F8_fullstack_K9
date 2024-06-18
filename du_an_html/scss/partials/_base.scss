@@ -31,7 +31,7 @@ $color-btn-add: #46b20f;
     transition-property: background-color, color;
 }
 .btn-add:hover {
-    outline: 2px solid $color-btn-add;
+    outline: 2px solid $color-btn-add !important;
     background-color: transparent;
     color: $color-btn-add;
 }
