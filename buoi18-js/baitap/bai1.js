@@ -33,7 +33,7 @@ if ((x >= 0 && y >= 0) || (x < 0 && y < 0)) {
     console.log("Bài4: Hai số khác dấu");
 }
 
-let a2 = 5;
+let a2 = 10;
 let b2 = 2;
 let c2 = 9;
 
