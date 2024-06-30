@@ -11,13 +11,12 @@ var runContent = setInterval(function () {
         position = content.length;
         // console.log(content);
     }
-    newContent = "";
-    newContent +=
+    newContent =
         firstContent +
         `<span> ${content.slice(0, position)} </span>` +
         content.slice(position);
     firstContent += content.slice(0, position + 1);
-    content = content.slice(position + 1).trim();
+    content = content.slice(position).trim();
     console.log(content);
     if (content.length === 0) {
         content = copyContent;
