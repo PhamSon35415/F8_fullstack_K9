@@ -1,5 +1,5 @@
 var content =
-    "Học lập trình không khó Học lập trình không khó Học lập trình không khó Học lập trình không khó";
+    "Học lập trình không khó Học lập trình không khó Học lập trình không khó Học lập trình không khó ";
 var newContent = "";
 var firstContent = "";
 var copyContent = content;
