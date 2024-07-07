@@ -1,3 +1,4 @@
+console.log("Bài 1");
 var arrA = [1, 4, 3, 2];
 var arrB = [5, 2, 6, 7, 1];
 var arrC = [];
@@ -10,6 +11,7 @@ for (let i = 0; i < arrA.length; i++) {
 }
 console.log(arrC);
 //
+console.log("Bài 2");
 var result = [];
 function lamphang(arr) {
     for (const element of arr) {
@@ -22,6 +24,7 @@ function lamphang(arr) {
     return result;
 }
 //
+console.log("Bài 3");
 var arr1 = [0, 1, [2, 3], [4, 5, [6, 7]], [8, [9, 10, [11, 12]]]];
 var flatArr = lamphang(arr1);
 console.log(flatArr);
@@ -49,6 +52,7 @@ function dulieu(arr) {
     }
 }
 //
+console.log("Bài 4");
 dulieu(arr2);
 console.log(resultArr);
 var content = "";
