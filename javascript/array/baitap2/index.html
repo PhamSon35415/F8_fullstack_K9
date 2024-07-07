@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+        }
+
+        .content-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+
+        }
+
+        .content-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .content-item:not(.content-item:last-child) {
+            border-bottom: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-item">
+            <img src="https://fastly.picsum.photos/id/37/600/600.jpg?hmac=svoKeiIO7rZg-rv5gvxPiIrWs8xjoDbvL1CLmlV-xKU"
+                alt="">
+            <div>
+                <h2>Hoc lap trinh</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos perspiciatis optio, laudantium quo,
+                    voluptate natus excepturi culpa dolores, expedita est rerum nihil provident? Consequatur ex quasi,
+                    accusamus labore rem amet.</p>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
