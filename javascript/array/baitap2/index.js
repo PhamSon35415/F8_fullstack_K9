@@ -24,10 +24,11 @@ function lamphang(arr) {
     return result;
 }
 //
-console.log("Bài 3");
+
 var arr1 = [0, 1, [2, 3], [4, 5, [6, 7]], [8, [9, 10, [11, 12]]]];
 var flatArr = lamphang(arr1);
 console.log(flatArr);
+console.log("Bài 3");
 var arr2 = [["a", 1, true], ["b", 2, false], 7];
 var resultArr = [];
 var test = "";
@@ -52,7 +53,6 @@ function dulieu(arr) {
     }
 }
 //
-console.log("Bài 4");
 dulieu(arr2);
 console.log(resultArr);
 var content = "";
