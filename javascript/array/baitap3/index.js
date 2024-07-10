@@ -21,7 +21,7 @@ function reverseNumber(num) {
     return x === y;
 }
 // bai 2
-var nums1 = [5],
+var nums1 = [5, -6],
     nums2 = [2];
 var nums0 = nums1.concat(nums2).sort();
 var result = 0;
@@ -33,9 +33,8 @@ if (nums0.length % 2 === 0) {
 console.log(`Trung vị của mảng {${nums0}}: ${result}`);
 
 // Bai 3
-var nums3 = [4, 5, 6],
-    nums4 = [7, 8];
-var nums = nums3.concat(nums4);
+
+var nums = [-1, 4, 5, 6];
 function maxarr(x) {
     if (Array.isArray(x)) {
         var max = x[0];
