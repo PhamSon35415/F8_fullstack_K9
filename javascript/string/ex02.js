@@ -1,6 +1,6 @@
 var content =
-    "Học lập trình không khó Học lập trình không khó Học lập trình không khó Học lập trình không khó";
-var key = "học";
+    "Học goiod trình không khó Học lập trình không khó Học lập trình không khó Học lập trình không khó";
+var key = "oo";
 var position = content.toLowerCase().indexOf(key.toLowerCase());
 var newContent = "";
 while (position !== -1) {
