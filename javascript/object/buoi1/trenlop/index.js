@@ -163,12 +163,12 @@ var user = {
 // hàm bind
 // console.log(oj2.getname.bind(a)());
 // hàm call(a,10,10)
-// function something(params, b) {
-//     console.log(this, params, b);
-// }
-// something.call(user, 3, 2);
+function something(params, b) {
+    console.log(this, params, b, "f");
+}
+something.call(user, 3, 2);
 // var arg = [10, 2];
 // something.apply(user, arg);
-user.getname();
+// user.getname();
 // trong js hàm tạo object là lớn nhất
-console.log(Object.prototype);
+// console.log(Object.prototype);

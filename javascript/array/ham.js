@@ -177,6 +177,18 @@ var customers = [
 //   return `${index + 1} - ${value}`;
 // });
 // console.log(newArr);
+// Array.prototype.map2 = function (callback2, index2) {
+//     var output = [];
+//     var arrl = this.length;
+//     for (var i = 0; i < arrl; i++) {
+//         var result2 = callback2(this[i], i);
+//         output.push(result2);
+//     }
+//     return output;
+// };
+// var y = const1.map2(function (course, index2) {
+//     return course;
+// });
 
 //3. filter(callback)
 // - Duyệt qua từng phần tử của mảng ban đầu
