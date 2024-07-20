@@ -15,19 +15,20 @@ Array.prototype.filter2 = function (callback) {
     if (typeof callback !== "function") {
         return null;
     }
-    var ouput = [];
+    var output = [];
     for (const index in this) {
         if (callback(this[index], index, this)) {
-            ouput.push(this[index]);
+            output.push(this[index]);
         }
     }
-    return ouput;
+    return output;
 };
 var testfiter = arr.filter2(function (value) {
     return value % 2 === 0;
 });
 console.log(testfiter);
 
+// Bài 3
 var categories = [
     {
         id: 1,
