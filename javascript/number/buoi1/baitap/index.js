@@ -90,6 +90,7 @@ function selectOption(list, prefix = "") {
     let options = "";
     for (let item of list) {
         options += `<option>${prefix}${item.name}</option>`;
+
         if (item.children) {
             options += selectOption(item.children, prefix + "--|");
         }

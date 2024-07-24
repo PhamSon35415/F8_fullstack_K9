@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn dangnhap">Đăng nhập</button>
+    <div class="overlay"></div>
+    <div class="container">
+        <img src="https://cdnweb.dantri.com.vn/dist/c7b827391b2f30b6fbaf.png" class="logo-dantri">
+        <div class="btn-gr">
+            <button class="btn btn-login">Đăng nhập</button>
+            <button class="btn btn-signup">Đăng ký</button>
+        </div>
+        <div class="container-login">
+            <p class="social-desc">với các tài khoản mạng xã hội</p>
+            <div class="social-gr">
+                <a class="btn-social"><img src="https://cdnweb.dantri.com.vn/dist/602a5aca41bdeb805571.svg"
+                        alt="">Google</a>
+                <a class="btn-social"><img src="https://cdnweb.dantri.com.vn/dist/05804407650f4479d9ef.svg"
+                        alt="">Facebook</a>
+            </div>
+            <p class="social-desc desc-or">hoặc</p>
+            <span class="login-false error"></span>
+            <form class="full-form">
+                <div>
+                    <label for="login-email">Email</label>
+                    <input type="email" placeholder="Email" class="input-login" id="login-email">
+                    <span class="emailError error"></span>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Mật khẩu</label>
+                    <input type="password" placeholder="Mật khẩu" class="input-login " id="login-password">
+                    <i class="fa-solid fa-eye icon-eye"></i>
+                    <span class="passError error"></span>
+                </div>
+                <a href="#!" class="forgot"><i>Quên mật khẩu ?</i></a>
+                <button class="btn-save btn-active btn-login">Đăng nhập</button>
+            </form>
+
+        </div>
+        <div class="form-signup">
+            <p class="social-desc">Hoàn thành đăng ký, và bắt đầu trải nghiệm ngay !</p>
+            <form>
+                <div>
+                    <label for="login-fullname">Họ và tên</label>
+                    <input type="text" placeholder="Họ và tên" class="input-login" id="singup-fullname">
+                    <span class="fullnameError error"></span>
+                </div>
+                <div>
+                    <label for="login-email">Email</label>
+                    <input type="email" placeholder="Email" class="input-login" id="singup-email">
+                    <span class="emailError error"></span>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Mật khẩu</label>
+                    <input type="password" placeholder="Mật khẩu" class="input-login" id="singup-password">
+                    <i class="fa-solid fa-eye icon-eye"></i>
+                    <span class="passError error"></span>
+                </div>
+                <a href="#!" class="forgot">Bằng cách đăng ký tài khoản, bạn cũng dồng thời chấp nhận mọi<span> điều
+                        khoản về qui định và chính sách của Dân trí</span></a>
+                <button class="btn-save btn-active">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
