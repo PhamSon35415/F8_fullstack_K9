@@ -59,8 +59,6 @@ function validateForm() {
 
     erEmail.innerHTML = "";
     pasEmail.innerHTML = "";
-    console.log(emailEl.value);
-    console.log(passEl.value);
     if (emailEl.value === "") {
         erEmail.innerHTML = "Email không được để trống";
         isValid = false;
@@ -75,7 +73,7 @@ function validateForm() {
 var email1El = document.querySelector("#singup-email");
 var pass1El = document.querySelector("#singup-password");
 var fullnameEl = document.querySelector("#singup-fullname");
-console.log(email1El);
+
 email1El.addEventListener("keyup", function () {
     validateForm2();
 });
@@ -110,3 +108,22 @@ function validateForm2() {
 
     return isValid;
 }
+
+document
+    .querySelectorAll(".icon-eye")[0]
+    .addEventListener("click", function () {
+        if (passEl.type == "password") {
+            passEl.type = "text";
+        } else {
+            passEl.type = "password";
+        }
+    });
+document
+    .querySelectorAll(".icon-eye")[1]
+    .addEventListener("click", function () {
+        if (pass1El.type == "password") {
+            pass1El.type = "text";
+        } else {
+            pass1El.type = "password";
+        }
+    });

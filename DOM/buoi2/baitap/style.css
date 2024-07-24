@@ -153,3 +153,6 @@ body {
 .hidden {
     display: none;
 }
+.icon-eye {
+    cursor: pointer;
+}
