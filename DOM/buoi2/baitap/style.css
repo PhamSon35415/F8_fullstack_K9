@@ -125,10 +125,8 @@ body {
 .icon-eye {
     position: absolute;
     right: 10px;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
-    display: inline-block;
-    background-color: black;
 }
 .forgot {
     color: gray;
@@ -155,4 +153,16 @@ body {
 }
 .icon-eye {
     cursor: pointer;
+}
+.test {
+    display: inline-block;
+    position: absolute;
+    right: 18px;
+    top: 33%;
+}
+.hidden-pass {
+    width: 1px;
+    height: 30px;
+    background-color: black;
+    transform: rotate(-45deg);
 }

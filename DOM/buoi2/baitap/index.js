@@ -108,14 +108,17 @@ function validateForm2() {
 
     return isValid;
 }
-
+var test = document.querySelectorAll(".test");
+console.log(test);
 document
     .querySelectorAll(".icon-eye")[0]
     .addEventListener("click", function () {
         if (passEl.type == "password") {
             passEl.type = "text";
+            test[0].classList.add("hidden-pass");
         } else {
             passEl.type = "password";
+            test[0].classList.remove("hidden-pass");
         }
     });
 document
@@ -123,7 +126,9 @@ document
     .addEventListener("click", function () {
         if (pass1El.type == "password") {
             pass1El.type = "text";
+            test[1].classList.add("hidden-pass");
         } else {
             pass1El.type = "password";
+            test[1].classList.remove("hidden-pass");
         }
     });
