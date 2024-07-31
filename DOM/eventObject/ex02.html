@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100Vh;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-block;
+            height: 50px;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+        .menu {
+            width: 200px;
+            background-color: rgb(51, 51, 51);
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .has-children {
+            position: relative;
+        }
+
+        .has-children::after {
+            position: absolute;
+            content: '▼';
+            top: 0;
+            right: 10px;
+            color: #fff;
+
+        }
+
+        .active::after {
+            transform: rotate(180deg);
+        }
+
+        .bg {
+            background-color: #0044ff;
+            width: 100%;
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h1>DOM Navigation</h1>
+    <div class="wrapper">
+        <div class="box">
+            <div class="content">
+                <h2>Thẻ H2</h2>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <h2>Item 1</h2>
+        <h2>Item 2</h2>
+        <h2>Item 3</h2>
+        <h2>Item 4</h2>
+    </div> -->
+    <ul class="menu">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2 </a>
+            <ul>
+                <li><a href="#">Item 2.1</a></li>
+                <li><a href="#">Item 2.2</a></li>
+                <li><a href="#">Item 2.3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Item 3</a>
+            <ul>
+                <li><a href="#">Item 3.1</a></li>
+                <li><a href="#">Item 3.2</a></li>
+                <li><a href="#">Item 3.3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Item 4</a></li>
+    </ul>
+    <script src="./ex02.js"></script>
+</body>
+
+</html>

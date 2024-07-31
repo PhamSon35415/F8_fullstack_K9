@@ -1,6 +1,7 @@
 var inputEl = document.querySelector(".input-content");
 var btnsubmitEl = document.querySelector(".btn-submit");
 var fullitemEL = document.querySelector(".full-item");
+console.log([fullitemEL]);
 btnsubmitEl.addEventListener("click", function (e) {
     if (inputEl.value !== "" && inputEl.value !== null) {
         if (fullitemEL.innerText === "Hết rồi !") {

@@ -31,7 +31,7 @@ h1 {
 }
 .input-content {
     padding-left: 15px;
-    height: 48px;
+    height: 40px;
     width: 80%;
     border: 2px solid var(--color);
     background-color: transparent;
@@ -71,4 +71,13 @@ h1 {
 .btn-icon {
     display: flex;
     column-gap: 15px;
+}
+.title-wrapper .name.product-title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-height: 1.2em;
+    height: calc(1.2em * 4);
 }
