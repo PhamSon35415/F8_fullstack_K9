@@ -46,3 +46,39 @@ dotsContainer.addEventListener("click", function (e) {
         goToIndex(index);
     }
 });
+carouselInnerEL.addEventListener("mousedown", function (e) {
+    if (e.which !== 1) return;
+    if (e.clientX === 0) return;
+    test = true;
+    x = e.clientX;
+    carouselInnerEL.style.cursor = "all-scroll";
+    carouselInnerEL.style.transition = "none";
+    document.addEventListener("mousemove", function (e) {
+        if (!test) return;
+
+        var deltaX = e.clientX - x;
+        var drag = deltaX / width;
+        if (e.clientX === 0) return;
+        console.log(e.clientX);
+
+        carouselInnerEL.style.transform =
+            "translateX(" + (-imgIndex * 100 + drag * 100) + "%)";
+    });
+    e.preventDefault();
+});
+
+document.addEventListener("mouseup", function (e) {
+    if (!test) return;
+    test = false;
+    carouselInnerEL.style.transition = "transform 0.3s ease";
+    var deltaX = e.clientX - x;
+    var drag = deltaX / width;
+    console.log(e.clientX);
+    if (drag > 0.3) {
+        goToIndex(imgIndex - 1);
+    } else if (drag < -0.3) {
+        goToIndex(imgIndex + 1);
+    } else {
+        goToIndex(imgIndex);
+    }
+});
