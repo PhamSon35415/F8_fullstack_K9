@@ -109,10 +109,15 @@ function updateCard() {
             .querySelectorAll(".table_cart_body input")
             .forEach(function (item) {
                 var inputValue = item.value;
-                if (+inputValue <= 0) inputValue = 1;
+
                 var id2 = parseInt(item.dataset.id);
                 var test = listProductAdd.findIndex((x) => x.id === id2);
+
                 if (test !== -1) {
+                    if (+inputValue <= 0) {
+                        listProductAdd.splice(test, 1);
+                        return;
+                    }
                     listProductAdd[test].solg = parseInt(inputValue);
                     listProductAdd[test].thanhtien =
                         parseFloat(inputValue) *
