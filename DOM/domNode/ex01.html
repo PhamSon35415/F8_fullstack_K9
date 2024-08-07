@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .shadow {
+            background-color: rgb(34, 34, 34);
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s ease;
+            transition-property: opacity, visibility;
+        }
+
+        .shadow span {
+            font-size: 40px;
+            color: antiquewhite;
+        }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="todo-list">
+        <p>Công việc 1</p>
+        <p>Công việc 2</p>
+        <p>Công việc 3</p>
+    </div>
+    <div class="todo-list">
+        <form>
+            <input type="text" placeholder="Tên....">
+        </form>
+        <button>Add</button>
+    </div>
+    <div id="root">
+
+    </div>
+    <h1>OKLA</h1> -->
+    <div class="shadow">
+        <span>Loading...</span>
+    </div>
+    <img src="https://picsum.photos/1000/1000" alt="">
+
+    <script src="./ex01.js"></script>
+</body>
+
+</html>

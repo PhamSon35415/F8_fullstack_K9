@@ -46,6 +46,7 @@ dotsContainer.addEventListener("click", function (e) {
         goToIndex(index);
     }
 });
+document.get;
 carouselInnerEL.addEventListener("mousedown", function (e) {
     if (e.which !== 1) return;
     if (e.clientX === 0) return;
@@ -60,7 +61,12 @@ carouselInnerEL.addEventListener("mousedown", function (e) {
         var drag = deltaX / width;
         if (e.clientX === 0) return;
         console.log(e.clientX);
-
+        if (imgIndex === 0 && drag > 0) {
+            drag = 0;
+        }
+        if (imgIndex === items.length - 1 && drag < 0) {
+            drag = 0;
+        }
         carouselInnerEL.style.transform =
             "translateX(" + (-imgIndex * 100 + drag * 100) + "%)";
     });
