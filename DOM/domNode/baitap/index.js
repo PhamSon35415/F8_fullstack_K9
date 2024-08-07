@@ -57,8 +57,7 @@ function loadData() {
         containerCard.innerHTML = "<h3>Không còn sản phẩm nào !</h3>";
         return;
     }
-    containerCard.innerHTML = `
-    <table cellpadding="0" cellspacing="0" width="100%" border="1" id="card_table">
+    containerCard.innerHTML = `<table>
             <thead>
             <th>STT</th>
             <th>Tên sản phẩm</th>
@@ -110,6 +109,7 @@ function updateCard() {
             .querySelectorAll(".table_card_body input")
             .forEach(function (item) {
                 var inputValue = item.value;
+                if (+inputValue <= 0) inputValue = 1;
                 var id2 = parseInt(item.dataset.id);
                 var test = listProductAdd.findIndex((x) => x.id === id2);
                 if (test !== -1) {
