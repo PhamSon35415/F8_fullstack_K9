@@ -54,7 +54,7 @@ function loadData() {
     var tongtien = 0;
     var tongsolg = 0;
     if (listProductAdd.length == 0) {
-        containerCard.innerHTML = "Không còn sản phẩm nào !";
+        containerCard.innerHTML = "<h3>Không còn sản phẩm nào !</h3>";
         return;
     }
     containerCard.innerHTML = `
@@ -76,9 +76,9 @@ function loadData() {
                         <td> ${index + 1}</td>
                         <td> ${value.name}</td>
                         <td> ${value.price}</td>
-                        <td> <input type="number" style="width: 90%;" value="${
+                        <td> <input type="number" value="${
                             value.solg
-                        }"/></td>
+                        }" data-id="${value.id}"/></td>
                         <td> ${value.thanhtien}</td>
                     <td><button type="button" style="width: 100%;" id="deleteProduct_${
                         value.id
@@ -100,6 +100,31 @@ function loadData() {
     
     `;
 }
+function updateCard() {
+    var confirmation = confirm(`Bạn có chắc chắn muốn cập nhập hay không ?`);
+    if (confirmation) {
+        var listProductAdd = localStorage.getItem("list-Product")
+            ? JSON.parse(localStorage.getItem("list-Product"))
+            : [];
+        containerCard
+            .querySelectorAll(".table_card_body input")
+            .forEach(function (item) {
+                var inputValue = item.value;
+                var id2 = parseInt(item.dataset.id);
+                var test = listProductAdd.findIndex((x) => x.id === id2);
+                if (test !== -1) {
+                    listProductAdd[test].solg = parseInt(inputValue);
+                    listProductAdd[test].thanhtien =
+                        parseFloat(inputValue) *
+                        parseFloat(listProductAdd[test].price);
+                }
+            });
+        alert("Cập nhập thành công !");
+        localStorage.setItem("list-Product", JSON.stringify(listProductAdd));
+        loadData();
+    }
+}
+
 function deleteProduct(id) {
     var confirmation = confirm(
         `Bạn có chắc chắn muốn xóa sản phẩm với id ${id}?`
@@ -120,7 +145,7 @@ function deleteProduct(id) {
             alert("Xóa thành công !");
         }
         if (listProductAdd.length == 0) {
-            containerCard.innerHTML = "Không còn sản phẩm nào !";
+            containerCard.innerHTML = "<h3>Không còn sản phẩm nào !</h3>";
         }
     }
 }
@@ -128,7 +153,7 @@ function deleteCard() {
     var confirmation = confirm(`Bạn có chắc chắn muốn xóa giỏ hàng không ?`);
     if (confirmation) {
         localStorage.removeItem("list-Product");
-        containerCard.innerHTML = "Không còn sản phẩm nào !";
+        containerCard.innerHTML = "<h3>Không còn sản phẩm nào !</h3>";
         alert("Xóa thành công !");
     }
 }
