@@ -18,7 +18,7 @@ product.forEach(function (value) {
 });
 console.log(product[0].id);
 
-var containerCard = document.querySelector(".card");
+var containerCard = document.querySelector(".cart");
 
 function addNew(id) {
     var inputValue = document.getElementById(`inputValue_${id}`).value;
@@ -66,7 +66,7 @@ function loadData() {
             <th>Thành tiền</th>
             <th style="width: 20%;">Xóa</th>
             </thead>
-            <tbody class="table_card_body">
+            <tbody class="table_cart_body">
             ${listProductAdd.map(function (value, index) {
                 tongtien += parseFloat(value.thanhtien);
                 tongsolg += parseFloat(value.solg);
@@ -106,7 +106,7 @@ function updateCard() {
             ? JSON.parse(localStorage.getItem("list-Product"))
             : [];
         containerCard
-            .querySelectorAll(".table_card_body input")
+            .querySelectorAll(".table_cart_body input")
             .forEach(function (item) {
                 var inputValue = item.value;
                 if (+inputValue <= 0) inputValue = 1;
