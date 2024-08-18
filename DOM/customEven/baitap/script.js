@@ -15,7 +15,7 @@ optionEl.querySelectorAll("button").forEach(function (item) {
         if (file == "new") {
             editor.innerText = "";
             charCount.textContent = `Số ký tự: 0`;
-            wordCount.textContent = `Số chữ: 0`;
+            wordCount.textContent = `Số từ: 0`;
         }
         if (file == "text") {
             var dataUrl =
@@ -45,7 +45,7 @@ btnFileEl.addEventListener("click", function (e) {
 editor.addEventListener("input", countText);
 function countText() {
     charCount.textContent = `Số ký tự: ${editor.innerText.length}`;
-    wordCount.textContent = `Số chữ: ${
+    wordCount.textContent = `Số từ: ${
         editor.innerText.trim().split(" ").length
     }`;
 }
