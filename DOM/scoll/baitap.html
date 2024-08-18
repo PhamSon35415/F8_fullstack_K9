@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: aquamarine;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content {
+            padding-left: 20px;
+            padding-top: 50px;
+        }
+
+        .desc {
+            height: 100vh;
+        }
+
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <button class="btn">Section 1</button>
+        <button class="btn">Section 2</button>
+        <button class="btn">Section 3</button>
+    </header>
+    <div class="content">
+        <div id="section_1" class="section" data-index="0">
+            <h2>Section_1</h2>
+            <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et architecto repellendus, maxime a error
+                aperiam
+                porro ea molestias, vitae quam aspernatur explicabo? In doloremque quod non, nam voluptatem totam
+                libero?
+            </p>
+        </div>
+
+        <div id="section_3" class="section" data-index="2">
+            <h2>Section_3</h2>
+            <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et architecto repellendus, maxime a error
+                aperiam
+                porro ea molestias, vitae quam aspernatur explicabo? In doloremque quod non, nam voluptatem totam
+                libero?
+            </p>
+        </div>
+        <div id="section_2" class="section" data-index="1">
+            <h2>Section_2</h2>
+            <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et architecto repellendus, maxime a error
+                aperiam
+                porro ea molestias, vitae quam aspernatur explicabo? In doloremque quod non, nam voluptatem totam
+                libero?
+            </p>
+        </div>
+
+    </div>
+
+
+
+    <script src="./baitap.js"></script>
+</body>
+
+</html>

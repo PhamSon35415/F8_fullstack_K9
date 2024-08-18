@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="Tìm kiếm: ">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const placeholderTexts = [
+                "Thiết bị đo môi trường",
+                "Thiết bị đo điện, điện tử",
+                "Thiết bị đo chuyên dụng",
+                "Đồng hồ vạn năng",
+                "Ampe kìm",
+                "Dụng cụ an toàn lao động",
+                "Thiết bị hiệu chuẩn",
+                "Thiết bị đo cơ khí",
+                "Bộ dụng cụ sửa chữa",
+                "Thiết bị đo nhiệt độ, độ ẩm",
+                "Thiết bị định vị",
+                "Thiết bị phóng đại",
+                "Dụng cụ cầm tay",
+                "Thiết bị chuẩn độ"
+            ];
+
+            const searchInput = document.querySelector('#search');
+            let currentText = searchInput.getAttribute('placeholder') || ''; // Get current placeholder
+            let textIndex = 0;
+            let charIndex = 0;
+            let adding = true;
+
+            function updatePlaceholder() {
+                if (adding) {
+                    // Add characters
+                    if (charIndex < placeholderTexts[textIndex].length) {
+                        currentText += placeholderTexts[textIndex][charIndex];
+                        charIndex++;
+                    } else {
+                        adding = false;
+                        setTimeout(updatePlaceholder, 500); // Pause before deleting
+                        return;
+                    }
+                } else {
+                    // Remove characters
+                    if (charIndex > 0) {
+                        currentText = currentText.slice(0, -1);
+                        charIndex--;
+                    } else {
+                        adding = true;
+                        textIndex = (textIndex + 1) % placeholderTexts.length; // Move to next text
+                    }
+                }
+                searchInput.setAttribute('placeholder', currentText);
+                setTimeout(updatePlaceholder, adding ? 50 : 50); // Faster speed
+            }
+
+            updatePlaceholder(); // Start the animation
+        });
+    </script>
+</body>
+
+</html>
