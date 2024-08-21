@@ -13,6 +13,7 @@ optionEl.querySelectorAll("button").forEach(function (item) {
         var file = item.dataset.file;
         console.log(file);
         if (file == "new") {
+            titleEl.value = "untitled";
             editor.innerText = "";
             charCount.textContent = `Số ký tự: 0`;
             wordCount.textContent = `Số từ: 0`;
@@ -41,13 +42,21 @@ btnFileEl.addEventListener("click", function (e) {
     optionEl.classList.toggle("hidden");
     console.log(e.target);
 });
+editor.addEventListener("paste", function (e) {
+    e.preventDefault();
+    var text = (e.clipboardData || window.clipboardData).getData("text");
+    document.execCommand("insertText", false, text);
+});
 
 editor.addEventListener("input", countText);
 function countText() {
-    charCount.textContent = `Số ký tự: ${editor.innerText.length}`;
-    wordCount.textContent = `Số từ: ${
-        editor.innerText.trim().split(" ").length
-    }`;
+    var contentVal = editor.innerText.trim();
+    charCount.innerText = `Số ký tự: ${contentVal.length}`;
+    var wordsArray = contentVal.split(/\s+/).filter(function (item) {
+        return item.trim() !== "";
+    });
+    var countWords = wordsArray.length;
+    wordCount.innerText = `Số từ: ${countWords}`;
 }
 
 function format(command) {

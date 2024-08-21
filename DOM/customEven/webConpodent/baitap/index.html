@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #03bdf0;
+            gap: 10px;
+
+            h2 {
+                color: #fff;
+
+            }
+        }
+
+        .count {
+            display: inline-block;
+            color: aliceblue;
+            font-size: 25px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: coral;
+            border-radius: 50%;
+        }
+
+        .btn {
+            background-color: transparent;
+            padding: 10px 25px;
+            cursor: pointer;
+            border: 1px solid #fff;
+            color: #fff;
+            border-radius: 999px;
+            font-size: 12px;
+            transition: 0.3s ease-in-out;
+            transition-property: background-color, transform;
+        }
+
+        .btn:not(:disabled):hover {
+            background-color: aqua;
+            transform: scale(1.05);
+        }
+
+        .btn:disabled {
+            background: #b6b6b6;
+            color: gray;
+            cursor: not-allowed;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>GET LINK</h2>
+        <span class="count">0</span>
+        <div class="action">
+            <button class="btn" disabled>Get Link</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
