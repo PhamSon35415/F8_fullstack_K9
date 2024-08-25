@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+        }
+
+        .container {
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .btn {
+            border: none;
+            background-color: red;
+            border-radius: 15px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 25px;
+            padding: 10px 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: green;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .mes {
+            color: red;
+        }
+
+        .mes.success {
+            color: rgb(6, 255, 6);
+        }
+
+        .action {
+            text-align: center;
+            width: 90%;
+            border: 1px solid rgb(6, 255, 6);
+            border-radius: 99px;
+            padding: 10px 0;
+            color: rgb(0, 0, 0);
+        }
+
+        .newtap {
+            font-weight: 600;
+            font-size: 18px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nhấn nút và nói gì đó !</h1>
+        <button class="btn"> Bấm vào để nói </button>
+        <!-- <span class="mes">Hãy nói nội dung bạn muốn</span> -->
+        <!-- <span class="action">Ok rồi chứ nhể ?</span> -->
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

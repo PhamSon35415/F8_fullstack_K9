@@ -10,6 +10,8 @@ function updateCountdown() {
     var timeLeft = endTime - now;
     timeRemaining = timeLeft;
     var time = Math.ceil(timeLeft / 1000);
+    console.log("ok");
+
     if (time <= 0) {
         document.querySelector(".count").innerText = "0";
         fullTime = 0;
