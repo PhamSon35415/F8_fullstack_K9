@@ -72,9 +72,7 @@ function handleVoiceCommand(transcript) {
         const song = transcript.replace(/bài hát|nghe bài hát|bài/g, "").trim();
         test = song;
         window.open(
-            `https://mp3.zing.vn/tim-kiem/bai-hat.html?q=${encodeURIComponent(
-                song
-            )}`,
+            `https://zingmp3.vn/tim-kiem/tat-ca?q=${encodeURIComponent(song)}`,
             "_blank"
         );
     } else if (
