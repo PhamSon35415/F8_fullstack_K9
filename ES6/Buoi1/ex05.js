@@ -1,2 +1,11 @@
-import home, { b as b1, c as c1 } from "./module/home.js";
-console.log(home, b1, c1);
+// import home, { b as b1, c as c1 } from "./module/home.js";
+// import * as home from "./module/home.js";
+// const { default: a, b, c } = home;
+// console.log(a, b, c);
+// import { home } from "./module/home.js";
+// import { product } from "./module/product.js";
+// import { posts } from "./module/posts.js";
+import { posts, home, product } from "./module/index.js";
+home();
+product();
+posts();

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Smatyx Todos App</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <h1 class="title"><span class="gradient-text">Smatyx</span> Todos App</h1>
+            <div class="toolbar">
+                <form class="form">
+                    <input type="text" class="input-search" placeholder="Search Todos">
+                    <i class="btn-search fa-solid fa-magnifying-glass"></i>
+                </form>
+                <button class="btn btn-add">Add Todo</button>
+            </div>
+            <ul class="list-todo">
+                <li class="item">
+                    <p class="name-job">Công Việc</p>
+                    <div class="action-job">
+                        <i class="btn-delete fa-solid fa-trash"></i>
+                        <i class="btn-update fa-solid fa-pen-to-square"></i>
+                        <i class="btn-complete fa-solid fa-check-to-slot"></i>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-list-complete">Completed Todos <span class="quantity">0</span> <span class="arrow"><i
+                        class="fa-solid fa-arrow-right"></i></span></button>
+            <ul class="list-complete">
+            </ul>
+        </div>
+        <div class="input-window hidden">
+            <form class="main-window">
+                <input type="text" class="input-search input-name" placeholder="Add Todos" required>
+                <hr>
+                <div class="btn-gr">
+                    <button class="btn-save btn">Save</button>
+                    <span class="btn-cancel btn">Cancel</span>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
