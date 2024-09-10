@@ -53,7 +53,11 @@ form.addEventListener("submit", (e) => {
 });
 
 let getTodo = async () => {
-    const data = await fetch(todoPoint);
+    try {
+        const data = await fetch(todoPoint);
+    } catch (error) {
+        console.error(error);
+    }
     const job = await data.json();
     console.log(job);
     return job;
