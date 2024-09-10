@@ -1,4 +1,4 @@
-const todoPoint = "http://localhost:3000/jobs";
+const todoPoint = "https://hfwml2-8080.csb.app/jobs";
 let btnAdd = document.querySelector(".btn-add");
 let windowEl = document.querySelector(".input-window");
 let btnSave = document.querySelector(".btn-save");
