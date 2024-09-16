@@ -1,0 +1,22 @@
+{
+    "question": [
+        {
+            "id": "1",
+            "text": "What is the capital of France?",
+            "answer": ["x1", "x2", "x3", "x4"],
+            "correct": "x1"
+        },
+        {
+            "id": "2",
+            "text": "What is the capital of France?",
+            "answer": ["x1", "x2", "x3", "x4"],
+            "correct": "x2"
+        },
+        {
+            "id": "3",
+            "text": "What is the capital of France?",
+            "answer": ["x1", "x2", "x3", "x4"],
+            "correct": "x4"
+        }
+    ]
+}
