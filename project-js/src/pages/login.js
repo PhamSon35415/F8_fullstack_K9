@@ -1,7 +1,8 @@
 import Navigo from "navigo";
+import { router } from "../../main";
 
 const baseUrl = "http://103.159.51.69:2000/login";
-const router = new Navigo("/");
+
 export function checkMethod(event) {
     alert("check");
     event.preventDefault();

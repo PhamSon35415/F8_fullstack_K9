@@ -1,10 +1,9 @@
 import Navigo from "navigo";
 import loginUI from "./login";
+import { router } from "../../main";
 
 const baseUrl = "http://103.159.51.69:2000/master/user";
-const router = new Navigo("/");
 export function postMethod(event) {
-    alert("check");
     event.preventDefault();
     // localStorage.setItem("test", "okk");
     const name = document.getElementById("name").value;
@@ -34,7 +33,6 @@ export function postMethod(event) {
             console.log("Success:", result);
             alert("Đăng ký thành công!");
             router.navigate("/");
-            router.updatePageLinks();
         })
         .catch((error) => {
             console.error("Error:", error);
