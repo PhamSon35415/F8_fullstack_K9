@@ -49,6 +49,7 @@ export default function registerUI() {
                     <input type="email" class="input" placeholder="Email" id="email" required />
                     <input type="password" class="input" placeholder="Password" id="pass" required />
                     <button class="btn" type="submit">Register</button>
+                    <a href="/login">Quay lại trang Login</a>
                 </form>
             </div>
         </div>

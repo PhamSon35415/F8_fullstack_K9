@@ -55,7 +55,7 @@ export const addClick = async () => {
     });
     btnLogout.addEventListener("click", () => {
         localStorage.removeItem("token");
-        router.navigate("/");
+        router.navigate("/login");
     });
     addPostBtn.onclick = function () {
         modal.style.display = "block";
@@ -65,7 +65,7 @@ export const addClick = async () => {
     };
 };
 console.log(JSON.parse(localStorage.getItem("token")));
-const getPost = async () => {
+export const getPost = async () => {
     let data = null;
     let token = JSON.parse(localStorage.getItem("token")).access;
     console.log(`bearer ${token}`);

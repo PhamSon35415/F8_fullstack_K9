@@ -1,7 +1,7 @@
 import Navigo from "navigo";
 import loginUI, { checkMethod } from "./src/pages/login.js";
 import registerUI, { postMethod } from "./src/pages/register.js";
-import HomeUI, { addClick } from "./src/pages/home.js";
+import HomeUI, { addClick, getPost } from "./src/pages/home.js";
 const render = (position, content) => {
     position.innerHTML = content();
 };
@@ -9,7 +9,7 @@ const render = (position, content) => {
 const appRoot = document.getElementById("app");
 export const router = new Navigo("/");
 
-router.on("/", () => {
+router.on("/login", () => {
     render(appRoot, loginUI);
     const form = document.getElementById("login");
     form.addEventListener("submit", checkMethod);
@@ -21,6 +21,8 @@ router.on("/sing-up", () => {
 });
 router.on("/home", () => {
     render(appRoot, HomeUI);
+
     addClick();
+    getPost();
 });
 router.resolve();
