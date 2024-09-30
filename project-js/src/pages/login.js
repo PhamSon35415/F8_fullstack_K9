@@ -1,10 +1,9 @@
-import Navigo from "navigo";
 import { router } from "../../main";
+import { postMethod } from "../../untils";
 
 const baseUrl = "http://103.159.51.69:2000/login";
 
 export function checkMethod(event) {
-    alert("check");
     event.preventDefault();
     const password = document.getElementById("password").value;
     const email = document.getElementById("email").value;
@@ -30,7 +29,7 @@ export function checkMethod(event) {
             localStorage.setItem("token", JSON.stringify(result));
             console.log("Success:", result);
             alert("Login!");
-            router.navigate("/home");
+            router.navigate("/");
         })
         .catch((error) => {
             console.error("Error:", error);
@@ -46,10 +45,24 @@ export default function loginUI() {
                 <form class="form" id="login">
                     <input type="email" class="input" placeholder="Email" id="email" required />
                     <input type="password" class="input" placeholder="Password" id="password" required />
-                    <button class="btn">Login</button>
+                    <button class="btn"id="login-btn">Login</button>
                     <a class="btn-sing-up" href="./sing-up">Bạn chưa có tài khoản ?</a>
                 </form>
+                
             </div>
         </div>
     `;
 }
+const onLogin = async (event) => {
+    event.preventDefault();
+    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const body = {
+        email,
+        password,
+    };
+    const response = await postMethod("login", body);
+    console.log(response);
+    localStorage.setItem("token", response);
+    router.navigate("/");
+};

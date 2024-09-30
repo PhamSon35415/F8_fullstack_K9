@@ -25,7 +25,7 @@ export default function HomeUI() {
             <tbody id="body-table"> 
             </tbody>
         </table>
-         <div id="post-modal" class="modal">
+    <div id="post-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Add New Post</h2>
@@ -42,24 +42,39 @@ export default function HomeUI() {
     </div>
     `;
 }
-
+export let check = null;
 export const addClick = async () => {
     const modal = document.getElementById("post-modal");
     const post_form = document.getElementById("post-form");
     const addPostBtn = document.getElementById("add-post-btn");
     const closeModalBtn = document.querySelector(".close");
     const btnLogout = document.getElementById("btnLogout");
+    const putBtn = document.querySelectorAll(".edit-btn");
+    console.log(putBtn[0]);
+
     post_form.addEventListener("submit", (e) => {
         e.preventDefault();
-        postContent();
+        if (!check) {
+            postContent();
+            router.navigate("/");
+        } else {
+            putContent();
+            router.navigate("/");
+        }
     });
     btnLogout.addEventListener("click", () => {
         localStorage.removeItem("token");
-        router.navigate("/login");
+        router.navigate("/");
     });
     addPostBtn.onclick = function () {
         modal.style.display = "block";
     };
+    putBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+    });
+
     closeModalBtn.onclick = function () {
         modal.style.display = "none";
     };
@@ -68,7 +83,7 @@ console.log(JSON.parse(localStorage.getItem("token")));
 export const getPost = async () => {
     let data = null;
     let token = JSON.parse(localStorage.getItem("token")).access;
-    console.log(`bearer ${token}`);
+
     try {
         const response = await fetch(`http://103.159.51.69:2000/post`, {
             method: "GET",
@@ -104,7 +119,7 @@ export const getPost = async () => {
                             <td>${post.title}</td>
                             <td>${post.content}</td>
                             <td>
-                                <button class="edit-btn" ><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></button>
+                                <button class="edit-btn" onclick="viewUpdate(${post.id},'${post.title}','${post.content}')"><i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i></button>
                                 <button class="delete-btn" onclick="deleteEl(${post.id})"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
                             </td>
                         </tr>`;
@@ -112,6 +127,15 @@ export const getPost = async () => {
             });
         }
     }
+    addClick();
+    console.log(`bearer ${token}`);
+};
+
+const viewUpdate = (id, title, content) => {
+    console.log(id);
+    check = id;
+    document.getElementById("title").value = title;
+    document.getElementById("content").value = content;
 };
 getPost();
 const postContent = async () => {
@@ -144,6 +168,40 @@ const postContent = async () => {
         postContent();
     }
 };
+const putContent = async () => {
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    let token = JSON.parse(localStorage.getItem("token")).access;
+    const body = {
+        title: title,
+        content: content,
+    };
+    try {
+        const response = await fetch(
+            `http://103.159.51.69:2000/post/:${check}`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `bearer ${token}`,
+                },
+                body: JSON.stringify(body),
+            }
+        );
+        if (response.ok) {
+            const modal = document.getElementById("post-modal");
+            modal.style.display = "none";
+            getPost();
+            check = null;
+        }
+        if (response.status === 401) {
+            throw new Error("Hết hạn");
+        }
+    } catch (e) {
+        refreshToken();
+        putContent();
+    }
+};
 const refreshToken = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
     if (!token || !token.refresh) {
@@ -170,7 +228,7 @@ const refreshToken = async () => {
 const deleteEl = async (id) => {
     try {
         let token = JSON.parse(localStorage.getItem("token")).access;
-        const response = await fetch(`http://103.159.51.69:2000/post/${id}`, {
+        const response = await fetch(`http://103.159.51.69:2000/post/:${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -183,3 +241,5 @@ const deleteEl = async (id) => {
         console.error("Lỗi khi làm mới token:", e);
     }
 };
+// document.getElementById("title").value = "ok";
+console.log(document.getElementById("title"));

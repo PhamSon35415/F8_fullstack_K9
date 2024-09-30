@@ -180,3 +180,15 @@ table th {
     color: black;
     cursor: pointer;
 }
+.center {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.primary--bg {
+    max-width: 1200px;
+}
+.white--text {
+    color: white;
+}

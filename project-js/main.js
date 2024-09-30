@@ -9,6 +9,15 @@ const render = (position, content) => {
 const appRoot = document.getElementById("app");
 export const router = new Navigo("/");
 
+router.on("/", () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+        router.navigate("/login");
+        return;
+    }
+    render(appRoot, HomeUI);
+    getPost();
+});
 router.on("/login", () => {
     render(appRoot, loginUI);
     const form = document.getElementById("login");
@@ -18,11 +27,5 @@ router.on("/sing-up", () => {
     render(appRoot, registerUI);
     const form = document.getElementById("registerForm");
     form.addEventListener("submit", postMethod);
-});
-router.on("/home", () => {
-    render(appRoot, HomeUI);
-
-    addClick();
-    getPost();
 });
 router.resolve();
