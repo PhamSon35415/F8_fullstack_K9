@@ -5,31 +5,36 @@ import { FButton, Input, FCommonTable } from "./components";
 import { v4 } from "uuid";
 
 function App() {
-    const columns = ["id", "name", "age", "gender", "address", "action"];
+    // const columns = ["id", "name", "age", "gender", "address", "action"];
+    const columns = [
+        {
+            name: "id",
+            text: "ID",
+            width: "20%",
+        },
+        {
+            name: "name",
+            text: "Tên",
+        },
+        {
+            name: "age",
+            text: "Tuổi",
+        },
+        {
+            name: "gender",
+            text: "Giới tính",
+        },
+        {
+            name: "address",
+            text: "Địa chỉ",
+        },
+        { name: "action", text: "" },
+    ];
+
     const [check, setCheck] = useState(false);
     const [users, setUsers] = useState([
         { id: v4(), name: "John", age: 25, gender: "male", address: "HN" },
     ]);
-    // const modal = document.getElementById("post-modal");
-    // const addUserBtn = document.getElementById("view_addUser");
-    // const updateBtn = document.querySelectorAll(".edit-btn");
-    // const closeModalBtn = document.querySelector(".close");
-    // addUserBtn.onclick = function () {
-    //     modal.style.display = "block";
-    // };
-    // updateBtn.forEach((item) => {
-    //     item.onclick = function () {
-    //         modal.style.display = "block";
-    //     };
-    // });
-    // closeModalBtn.onclick = function () {
-    //     modal.style.display = "none";
-    // };
-    // window.onclick = function (event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // };
     const [user, setUser] = useState({
         id: v4(),
         name: "",
@@ -99,9 +104,8 @@ function App() {
         }
     };
 
-    const onEditUser = (id) => {
-        const editUser = users.find((user) => user.id === id);
-        setUser(editUser);
+    const onEditUser = (user) => {
+        setUser(user);
         setCheck(true);
     };
     const onDeleteUser = (id) => {
@@ -157,10 +161,11 @@ function App() {
                 Thêm User
             </button> */}
             <FCommonTable
+                maxWidth={800}
                 columns={columns}
                 rows={users}
-                onEditUser={onEditUser}
-                onDeleteUser={onDeleteUser}
+                onEdit={onEditUser}
+                onDelete={onDeleteUser}
             />
         </div>
     );

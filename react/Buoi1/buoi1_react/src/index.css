@@ -123,3 +123,12 @@ input:focus {
     color: black;
     cursor: pointer;
 }
+.pa-2 {
+    padding: 8px;
+}
+.ma-2 {
+    margin: 8px;
+}
+.mt-2 {
+    margin: 8px;
+}

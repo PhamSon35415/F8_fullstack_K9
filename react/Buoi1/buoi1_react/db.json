@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "orderNum": 1
+    },
+    {
+      "id": "331965dc-6255-42fc-9550-d7686143bfdf",
+      "name": "qwq",
+      "orderNum": "q"
+    },
+    {
+      "id": "6a05d225-3238-49e6-8506-2f06e043863b",
+      "name": "s",
+      "categoryId": "s",
+      "orderNum": "s"
+    },
+    {
+      "id": "6a05d225-3238-49e6-8506-2f06e043863b",
+      "name": "1",
+      "categoryId": "1",
+      "orderNum": "1"
+    },
+    {
+      "id": "6a05d225-3238-49e6-8506-2f06e043863b",
+      "name": "323",
+      "categoryId": "35",
+      "orderNum": "54"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "categoryId": 1,
+      "orderNum": 1
+    },
+    {
+      "id": "e2302698-6ddd-44e2-be6e-5fed682fac2a",
+      "name": "q",
+      "categoryId": "q",
+      "orderNum": "q"
+    }
+  ]
+}
