@@ -96,6 +96,7 @@ export default function ({ check, category, show, onClose, width, reload }) {
                 onSave={onSave}
                 onClose={onExit}
                 width={width}
+                title={check ? "Update category" : "Create category"}
             >
                 <WhiteBar />
                 <TextField
