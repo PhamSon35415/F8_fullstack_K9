@@ -9,6 +9,7 @@ import {
     FormControl,
 } from "@mui/material";
 import { v4 } from "uuid";
+import Swal from "sweetalert2";
 
 function WhiteBar() {
     return (
@@ -39,10 +40,33 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
         }
         getCategories();
     }, [check, productItem]);
+    const [errors, setErrors] = useState({
+        name: false,
+        orderNum: false,
+    });
+    const validate = () => {
+        let tempErrors = { name: false, orderNum: false };
+        let isValid = true;
+
+        if (!product.name) {
+            tempErrors.name = true;
+            isValid = false;
+        }
+
+        if (!product.orderNum || isNaN(product.orderNum)) {
+            tempErrors.orderNum = true;
+            isValid = false;
+        }
+
+        setErrors(tempErrors);
+        return isValid;
+    };
 
     const getCategories = async () => {
         try {
-            const response = await fetch("http://localhost:3000/categories");
+            const response = await fetch(
+                "https://jlny6y-8080.csb.app/categories"
+            );
             const data = await response.json();
             setCategories(data);
         } catch (error) {
@@ -57,11 +81,14 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
     };
 
     const onSave = async () => {
+        if (!validate()) {
+            return;
+        }
         try {
             const method = check ? "PATCH" : "POST";
             const url = check
-                ? `http://localhost:3000/products/${product.id}`
-                : "http://localhost:3000/products";
+                ? `https://jlny6y-8080.csb.app/products/${product.id}`
+                : "https://jlny6y-8080.csb.app/products";
             const response = await fetch(url, {
                 method,
                 headers: {
@@ -78,7 +105,7 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
                     icon: "success",
                     title: "Lưu thành công",
                     showConfirmButton: false,
-                    timer: 1500,
+                    timer: 1000,
                 });
             }
         } catch (error) {
@@ -99,6 +126,8 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
                 name="name"
                 onChange={onInput}
                 value={product.name || ""}
+                error={errors.name}
+                helperText={errors.name ? "Vui lòng nhập tên." : ""}
             />
             <WhiteBar />
             <FormControl fullWidth>
@@ -126,6 +155,8 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
                 name="orderNum"
                 onChange={onInput}
                 value={product.orderNum || ""}
+                error={errors.orderNum}
+                helperText={errors.orderNum ? "Vui lòng nhập số thứ tự." : ""}
             />
             <WhiteBar />
         </DialogContainers>

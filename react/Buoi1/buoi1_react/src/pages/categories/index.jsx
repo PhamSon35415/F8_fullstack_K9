@@ -27,7 +27,7 @@ export default function () {
         },
     ];
     const getCategories = async () => {
-        const response = await fetch("http://localhost:3000/categories");
+        const response = await fetch("https://jlny6y-8080.csb.app/categories");
         const data = await response.json();
         setCategories(data);
     };
@@ -54,7 +54,7 @@ export default function () {
 
     const onDelete = async (data) => {
         const result = await Swal.fire({
-            title: `Bạn có chắc muốn xóa danh mục : ${data.name} không?`,
+            title: `Bạn có chắc muốn xóa danh mục này không?`,
             text: "Không khôi phục được đâu, suy nghĩ cho chắc!",
             icon: "warning",
             showCancelButton: true,
@@ -65,31 +65,33 @@ export default function () {
         });
 
         if (result.isConfirmed) {
-            const url = `http://localhost:3000/categories/${data.id}`;
+            const url = `https://jlny6y-8080.csb.app/categories/${data.id}`;
 
             try {
                 const productsResponse = await fetch(
-                    "http://localhost:3000/products"
+                    "https://jlny6y-8080.csb.app/products"
                 );
                 const products = await productsResponse.json();
                 const productsToUpdate = products.filter(
                     (product) => product.categoryId === data.id
                 );
-                for (const product of productsToUpdate) {
-                    const updatedProduct = {
-                        ...product,
-                        categoryId: "0",
-                    };
-                    await fetch(
-                        `http://localhost:3000/products/${product.id}`,
-                        {
-                            method: "PATCH",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(updatedProduct),
-                        }
-                    );
+                if (productsToUpdate.length > 0) {
+                    for (const product of productsToUpdate) {
+                        const updatedProduct = {
+                            ...product,
+                            categoryId: "0",
+                        };
+                        await fetch(
+                            `https://jlny6y-8080.csb.app/products/${product.id}`,
+                            {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify(updatedProduct),
+                            }
+                        );
+                    }
                 }
                 const response = await fetch(url, {
                     method: "DELETE",
@@ -121,7 +123,7 @@ export default function () {
             <div className="btn-center">
                 <h1>Categories</h1>
                 <Button variant="contained" onClick={onAdd}>
-                    Contained
+                    Thêm danh mục
                 </Button>
             </div>
             <FCommonTable

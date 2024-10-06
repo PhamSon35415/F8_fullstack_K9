@@ -34,37 +34,58 @@ export default function ({ check, category, show, onClose, width, reload }) {
     }, [category, check]);
 
     const onInput = (e) => {
-        const { name, value } = e.target;
-        setCurCategory((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        const newCategory = { ...curCategory };
+        newCategory[e.target.name] = e.target.value;
+        setCurCategory(newCategory);
+    };
+    const [errors, setErrors] = useState({
+        name: false,
+        orderNum: false,
+    });
+    const validate = () => {
+        let tempErrors = { name: false, orderNum: false };
+        let isValid = true;
+
+        if (!curCategory.name) {
+            tempErrors.name = true;
+            isValid = false;
+        }
+
+        if (!curCategory.orderNum || isNaN(curCategory.orderNum)) {
+            tempErrors.orderNum = true;
+            isValid = false;
+        }
+
+        setErrors(tempErrors);
+        return isValid;
     };
 
     const onSave = async () => {
-        const url = check
-            ? `http://localhost:3000/categories/${curCategory.id}`
-            : "http://localhost:3000/categories";
-        const method = check ? "PATCH" : "POST";
+        if (validate()) {
+            const url = check
+                ? `https://jlny6y-8080.csb.app/categories/${curCategory.id}`
+                : "https://jlny6y-8080.csb.app/categories";
+            const method = check ? "PATCH" : "POST";
 
-        const response = await fetch(url, {
-            method,
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(curCategory),
-        });
-
-        if (response.ok) {
-            await reload();
-            onExit();
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Lưu thành công",
-                showConfirmButton: false,
-                timer: 1500,
+            const response = await fetch(url, {
+                method,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(curCategory),
             });
+
+            if (response.ok) {
+                await reload();
+                onExit();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Lưu thành công",
+                    showConfirmButton: false,
+                    timer: 1000,
+                });
+            }
         }
     };
 
@@ -82,8 +103,11 @@ export default function ({ check, category, show, onClose, width, reload }) {
                     fullWidth
                     placeholder="Name"
                     name="name"
+                    required
                     onInput={onInput}
                     value={curCategory.name || ""}
+                    error={errors.name}
+                    helperText={errors.name ? "Vui lòng nhập tên." : ""}
                 />
                 <WhiteBar />
                 <TextField
@@ -92,7 +116,12 @@ export default function ({ check, category, show, onClose, width, reload }) {
                     placeholder="Order num"
                     name="orderNum"
                     onInput={onInput}
+                    required
                     value={curCategory.orderNum || ""}
+                    error={errors.orderNum}
+                    helperText={
+                        errors.orderNum ? "Vui lòng nhập số thứ tự." : ""
+                    }
                 />
                 <WhiteBar />
             </DialogContainers>

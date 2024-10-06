@@ -32,7 +32,7 @@ export default function () {
     ];
 
     const getProducts = async () => {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch("https://jlny6y-8080.csb.app/products");
         setProducts(await response.json());
     };
     useEffect(() => {
@@ -61,7 +61,7 @@ export default function () {
         });
 
         if (result.isConfirmed) {
-            const url = `http://localhost:3000/products/${data.id}`;
+            const url = `https://jlny6y-8080.csb.app/products/${data.id}`;
             try {
                 const response = await fetch(url, {
                     method: "DELETE",
@@ -99,8 +99,8 @@ export default function () {
 
     return (
         <>
-            <span>products</span>
             <div className={"btn-center"}>
+                <h1>Products</h1>
                 <Button variant="contained" onClick={onAdd}>
                     Thêm sản phẩm
                 </Button>
