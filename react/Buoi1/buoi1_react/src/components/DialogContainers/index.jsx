@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-export default function ({ onSave, show, onClose, width, children }) {
+export default function ({ title, onSave, show, onClose, width, children }) {
     return (
         <>
             <Dialog
@@ -18,7 +18,7 @@ export default function ({ onSave, show, onClose, width, children }) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title" width={width}>
-                    {"Create category"}
+                    {title}
                 </DialogTitle>
                 <DialogContent>{children}</DialogContent>
                 <DialogActions>

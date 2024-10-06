@@ -119,6 +119,7 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
             onSave={onSave}
             onClose={onExit}
             width={width}
+            title={check ? "Update product" : "Create product"}
         >
             <TextField
                 fullWidth
