@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { FCommonTable, CategoryDialog } from "../../components";
-
+import { Button } from "@mui/material";
+import Swal from "sweetalert2";
+export const dataCategory = createContext();
 export default function () {
     const [showDialog, setShowDialog] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState({});
+    const [check, setCheck] = useState(false);
     const columns = [
         {
             text: "Id",
@@ -23,31 +27,113 @@ export default function () {
         },
     ];
     const getCategories = async () => {
-        const reponse = await fetch("http://localhost:3000/categories");
-        setCategories(await reponse.json());
+        const response = await fetch("http://localhost:3000/categories");
+        const data = await response.json();
+        setCategories(data);
     };
+    const sortCategories = categories.sort((a, b) => {
+        return Number(a.orderNum) - Number(b.orderNum);
+    });
     useEffect(() => {
         getCategories();
     }, []);
 
-    const onUpdate = (categories) => {
+    const onUpdate = (data) => {
+        setCategory(data);
+        setCheck(true);
+        setShowDialog(true);
+    };
+    const onAdd = () => {
         setShowDialog(true);
     };
 
     const onCloseDialog = () => {
         setShowDialog(false);
+        setCheck(false);
+    };
+
+    const onDelete = async (data) => {
+        const result = await Swal.fire({
+            title: `Bạn có chắc muốn xóa danh mục : ${data.name} không?`,
+            text: "Không khôi phục được đâu, suy nghĩ cho chắc!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Có, xóa nó!",
+            cancelButtonText: "Thôi",
+        });
+
+        if (result.isConfirmed) {
+            const url = `http://localhost:3000/categories/${data.id}`;
+
+            try {
+                const productsResponse = await fetch(
+                    "http://localhost:3000/products"
+                );
+                const products = await productsResponse.json();
+                const productsToUpdate = products.filter(
+                    (product) => product.categoryId === data.id
+                );
+                for (const product of productsToUpdate) {
+                    const updatedProduct = {
+                        ...product,
+                        categoryId: "0",
+                    };
+                    await fetch(
+                        `http://localhost:3000/products/${product.id}`,
+                        {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(updatedProduct),
+                        }
+                    );
+                }
+                const response = await fetch(url, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (response.ok) {
+                    await getCategories();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Ok! Đã Xóa.",
+                        icon: "success",
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: "Lỗi!",
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                });
+            }
+        }
     };
 
     return (
         <>
-            <span>products</span>
+            <div className="btn-center">
+                <h1>Categories</h1>
+                <Button variant="contained" onClick={onAdd}>
+                    Contained
+                </Button>
+            </div>
             <FCommonTable
                 maxWidth={1000}
                 columns={columns}
-                rows={categories}
+                rows={sortCategories}
                 onUpdate={onUpdate}
+                onDelete={onDelete}
             />
             <CategoryDialog
+                category={category}
+                check={check}
                 show={showDialog}
                 onClose={onCloseDialog}
                 width={600}

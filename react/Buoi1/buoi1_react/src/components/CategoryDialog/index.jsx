@@ -1,6 +1,9 @@
 import DialogContainer from "../DialogContainers";
 import { Box, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import DialogContainers from "../DialogContainers";
+import { v4 } from "uuid";
+import Swal from "sweetalert2";
 
 function WhiteBar() {
     return (
@@ -13,45 +16,64 @@ function WhiteBar() {
     );
 }
 
-export default function ({ category, show, onClose, width, reload }) {
+export default function ({ check, category, show, onClose, width, reload }) {
     const [curCategory, setCurCategory] = useState({
-        id: null,
+        id: v4(),
         name: "",
         orderNum: "",
     });
+    const onExit = () => {
+        onClose();
+        setCurCategory({ id: v4(), name: "", orderNum: "" });
+    };
 
     useEffect(() => {
-        setCurCategory({ ...category });
-    }, [category]);
+        if (check && category) {
+            setCurCategory({ ...category });
+        }
+    }, [category, check]);
 
     const onInput = (e) => {
-        const newCategory = { ...curCategory };
-        newCategory[e.target.name] = e.target.value;
-        setCurCategory({ ...newCategory });
+        const { name, value } = e.target;
+        setCurCategory((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     const onSave = async () => {
-        // save category
-        const response = await fetch("http://localhost:3000/categories", {
-            method: "POST",
+        const url = check
+            ? `http://localhost:3000/categories/${curCategory.id}`
+            : "http://localhost:3000/categories";
+        const method = check ? "PATCH" : "POST";
+
+        const response = await fetch(url, {
+            method,
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(category),
+            body: JSON.stringify(curCategory),
         });
 
         if (response.ok) {
             await reload();
-            onClose();
+            onExit();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Lưu thành công",
+                showConfirmButton: false,
+                timer: 1500,
+            });
         }
     };
 
     return (
         <>
-            <DialogContainer
+            <DialogContainers
                 show={show}
                 onSave={onSave}
-                onClose={onClose}
+                onClose={onExit}
                 width={width}
             >
                 <WhiteBar />
@@ -61,7 +83,7 @@ export default function ({ category, show, onClose, width, reload }) {
                     placeholder="Name"
                     name="name"
                     onInput={onInput}
-                    value={curCategory.name}
+                    value={curCategory.name || ""}
                 />
                 <WhiteBar />
                 <TextField
@@ -70,10 +92,10 @@ export default function ({ category, show, onClose, width, reload }) {
                     placeholder="Order num"
                     name="orderNum"
                     onInput={onInput}
-                    value={curCategory.orderNum}
+                    value={curCategory.orderNum || ""}
                 />
                 <WhiteBar />
-            </DialogContainer>
+            </DialogContainers>
         </>
     );
 }

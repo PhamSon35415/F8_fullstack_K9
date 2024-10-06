@@ -1,118 +1,133 @@
 import React, { useEffect, useState } from "react";
+import DialogContainers from "../DialogContainers";
 import {
-    DialogTitle,
-    Dialog,
-    DialogContent,
-    DialogActions,
-    Button,
-    DialogContentText,
     TextField,
-    Input,
-    OutlinedInput,
     Box,
+    Select,
+    MenuItem,
+    InputLabel,
+    FormControl,
 } from "@mui/material";
 import { v4 } from "uuid";
+
 function WhiteBar() {
     return (
         <Box
-            sx={(theme) => ({
+            sx={{
                 height: 20,
                 backgroundColor: "#fff",
-                ...theme.applyStyles("dark", {
-                    backgroundColor: "#fff",
-                }),
-            })}
+            }}
         />
     );
 }
-export default function ({ show, onClose, width, reload, check, item }) {
+
+export default function ({ show, onClose, width, reload, check, productItem }) {
     const [product, setProduct] = useState({
         id: v4(),
         name: "",
         categoryId: 1,
         orderNum: 1,
     });
-    useEffect(() => {
-        if (check) {
-            setProduct(item);
-        }
-    }, []);
-    const onInput = (e) => {
-        const newproduct = { ...product };
-        newproduct[e.target.name] = e.target.value;
-        setProduct({ ...newproduct });
+    const [categories, setCategories] = useState([]);
+    const onExit = () => {
+        onClose();
+        setProduct({ id: v4(), name: "", categoryId: 1, orderNum: 1 });
     };
+    useEffect(() => {
+        if (check && productItem) {
+            setProduct(productItem);
+        }
+        getCategories();
+    }, [check, productItem]);
+
+    const getCategories = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/categories");
+            const data = await response.json();
+            setCategories(data);
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+        }
+    };
+
+    const onInput = (e) => {
+        const newProduct = { ...product };
+        newProduct[e.target.name] = e.target.value;
+        setProduct(newProduct);
+    };
+
     const onSave = async () => {
-        if (!check) {
-            const response = await fetch("http://localhost:3000/products", {
-                method: "POST",
+        try {
+            const method = check ? "PATCH" : "POST";
+            const url = check
+                ? `http://localhost:3000/products/${product.id}`
+                : "http://localhost:3000/products";
+            const response = await fetch(url, {
+                method,
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(product),
             });
+
             if (response.ok) {
                 await reload();
-                onClose();
+                onExit();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Lưu thành công",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             }
-        } else {
-            const response = await fetch(
-                `http://localhost:3000/products/${product.id}`,
-                {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(product),
-                }
-            );
-            if (response.ok) {
-                await reload();
-                onClose();
-            }
+        } catch (error) {
+            console.error("Error saving product:", error);
         }
     };
+
     return (
-        <>
-            <Dialog
-                open={show}
-                onClose={onClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title" width={width}>
-                    {"Thêm mới sản phẩm "}
-                </DialogTitle>
-                <DialogContent>
-                    <TextField
-                        fullWidth={true}
-                        placeholder="Tên"
-                        name="name"
-                        onInput={onInput}
-                    />
-                    <WhiteBar></WhiteBar>
-                    <TextField
-                        fullWidth={true}
-                        placeholder="Giá"
-                        name="categoryId"
-                        onInput={onInput}
-                    />
-                    <WhiteBar></WhiteBar>
-                    <TextField
-                        fullWidth={true}
-                        placeholder="Thứ tự"
-                        name="orderNum"
-                        onInput={onInput}
-                    />
-                    <WhiteBar></WhiteBar>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={onSave}>Save</Button>
-                    <Button onClick={onClose} autoFocus>
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </>
+        <DialogContainers
+            show={show}
+            onSave={onSave}
+            onClose={onExit}
+            width={width}
+        >
+            <TextField
+                fullWidth
+                placeholder="Tên"
+                name="name"
+                onChange={onInput}
+                value={product.name || ""}
+            />
+            <WhiteBar />
+            <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                <Select
+                    fullWidth
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    name="categoryId"
+                    onChange={onInput}
+                    value={product.categoryId || ""}
+                    label="Category"
+                >
+                    {categories.map((item) => (
+                        <MenuItem key={item.id} value={item.id}>
+                            {item.name}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+            <WhiteBar />
+            <TextField
+                fullWidth
+                placeholder="Thứ tự"
+                name="orderNum"
+                onChange={onInput}
+                value={product.orderNum || ""}
+            />
+            <WhiteBar />
+        </DialogContainers>
     );
 }

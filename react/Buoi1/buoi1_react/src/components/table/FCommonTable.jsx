@@ -13,7 +13,6 @@ import style from "./style.module.css";
 export default function FCommonTable({
     rows,
     columns,
-    onEdit,
     onDelete,
     maxWidth,
     onUpdate,
@@ -49,7 +48,9 @@ export default function FCommonTable({
                                             >
                                                 <button
                                                     class="edit-btn"
-                                                    onClick={() => onEdit(row)}
+                                                    onClick={() =>
+                                                        onUpdate(row)
+                                                    }
                                                 >
                                                     <EditIcon
                                                         className={"ma-2"}
