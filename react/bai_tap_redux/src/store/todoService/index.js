@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/todos";
+const API_URL = "https://2gm9hh-8080.csb.app/todos";
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
     const response = await axios.get(API_URL);
     return response.data;
@@ -42,6 +42,7 @@ const todoSlice = createSlice({
     initialState: {
         items: [],
         loading: false,
+        loadingBtn: false,
     },
     extraReducers: (builder) => {
         builder
@@ -52,10 +53,14 @@ const todoSlice = createSlice({
                 state.loading = false;
                 state.items = action.payload;
             })
-
+            .addCase(addTodo.pending, (state) => {
+                state.loadingBtn = true;
+            })
             .addCase(addTodo.fulfilled, (state, action) => {
+                state.loadingBtn = false;
                 state.items.push(action.payload);
             })
+
             .addCase(updateTodo.fulfilled, (state, action) => {
                 const index = state.items.findIndex(
                     (todo) => todo.id === action.payload.id
