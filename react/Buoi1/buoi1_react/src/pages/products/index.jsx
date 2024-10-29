@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { ProductDialog, FCommonTable } from "../../components";
+import { ProductDialog, FCommonTable, LoadingSpinner } from "../../components";
 import Swal from "sweetalert2";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 export default function () {
+    const [loading, setLoading] = useState(false);
     const [showDialog, setShowDialog] = useState(false);
     const [products, setProducts] = useState([]);
     const [check, setCheck] = useState(false);
@@ -32,8 +34,17 @@ export default function () {
     ];
 
     const getProducts = async () => {
-        const response = await fetch("https://jlny6y-8080.csb.app/products");
-        setProducts(await response.json());
+        setLoading(true);
+        try {
+            const response = await fetch(
+                "https://jlny6y-8080.csb.app/products"
+            );
+            setProducts(await response.json());
+        } catch (e) {
+            console.log(e);
+        } finally {
+            setLoading(false);
+        }
     };
     useEffect(() => {
         getProducts();
@@ -63,31 +74,32 @@ export default function () {
         if (result.isConfirmed) {
             const url = `https://jlny6y-8080.csb.app/products/${data.id}`;
             try {
-                const response = await fetch(url, {
-                    method: "DELETE",
+                const response = await axios({
+                    method: "delete",
+                    url,
                     headers: {
                         "Content-Type": "application/json",
                     },
                 });
+                if (response.status === 200) {
+                    setProducts((x) => x.filter((item) => item.id !== data.id));
 
-                if (response.ok) {
-                    await getProducts();
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Ok ! Đã Xóa .",
+                        text: "Ok! Đã Xóa.",
                         icon: "success",
                     });
                 } else {
                     Swal.fire({
                         title: "Lỗi!",
-                        text: "Lỗi rồi xem lại đi !",
+                        text: "Lỗi rồi xem lại đi!",
                         icon: "error",
                     });
                 }
             } catch (error) {
                 Swal.fire({
                     title: "Lỗi!",
-                    text: "Lỗi rồi xem lại đi !",
+                    text: "Lỗi rồi xem lại đi!",
                     icon: "error",
                 });
             }
@@ -105,21 +117,27 @@ export default function () {
                     Thêm sản phẩm
                 </Button>
             </div>
-            <FCommonTable
-                maxWidth={1200}
-                columns={columns}
-                rows={products}
-                onUpdate={onEdit}
-                onDelete={onDelete}
-            />
-            <ProductDialog
-                productItem={check1}
-                show={showDialog}
-                onClose={onCloseDialog}
-                width={600}
-                reload={getProducts}
-                check={check}
-            />
+            {loading ? (
+                <LoadingSpinner loading={loading} size={50} color="#1976d2" />
+            ) : (
+                <>
+                    <FCommonTable
+                        maxWidth={1200}
+                        columns={columns}
+                        rows={products}
+                        onUpdate={onEdit}
+                        onDelete={onDelete}
+                    />
+                    <ProductDialog
+                        productItem={check1}
+                        show={showDialog}
+                        onClose={onCloseDialog}
+                        width={600}
+                        setProducts={setProducts}
+                        check={check}
+                    />
+                </>
+            )}
         </>
     );
 }

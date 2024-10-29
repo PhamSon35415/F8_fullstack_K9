@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import DialogContainers from "../DialogContainers";
 import { v4 } from "uuid";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function WhiteBar() {
     return (
@@ -16,17 +17,28 @@ function WhiteBar() {
     );
 }
 
-export default function ({ check, category, show, onClose, width, reload }) {
+export default function ({
+    check,
+    category,
+    show,
+    onClose,
+    width,
+    setCategories,
+}) {
+    const [loading, setLoading] = useState(false);
     const [curCategory, setCurCategory] = useState({
         id: v4(),
         name: "",
         orderNum: "",
     });
+    const [errors, setErrors] = useState({
+        name: false,
+        orderNum: false,
+    });
     const onExit = () => {
         onClose();
         setCurCategory({ id: v4(), name: "", orderNum: "" });
     };
-
     useEffect(() => {
         if (check && category) {
             setCurCategory({ ...category });
@@ -38,24 +50,18 @@ export default function ({ check, category, show, onClose, width, reload }) {
         newCategory[e.target.name] = e.target.value;
         setCurCategory(newCategory);
     };
-    const [errors, setErrors] = useState({
-        name: false,
-        orderNum: false,
-    });
+
     const validate = () => {
         let tempErrors = { name: false, orderNum: false };
         let isValid = true;
-
         if (!curCategory.name) {
             tempErrors.name = true;
             isValid = false;
         }
-
         if (!curCategory.orderNum || isNaN(curCategory.orderNum)) {
             tempErrors.orderNum = true;
             isValid = false;
         }
-
         setErrors(tempErrors);
         return isValid;
     };
@@ -65,18 +71,27 @@ export default function ({ check, category, show, onClose, width, reload }) {
             const url = check
                 ? `https://jlny6y-8080.csb.app/categories/${curCategory.id}`
                 : "https://jlny6y-8080.csb.app/categories";
-            const method = check ? "PATCH" : "POST";
+            const method = check ? "patch" : "post";
+            setLoading(true);
+            try {
+                await axios({
+                    method,
+                    url,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    data: curCategory,
+                });
+                setCategories((x) => {
+                    if (check) {
+                        return x.map((item) =>
+                            item.id === curCategory.id ? curCategory : item
+                        );
+                    } else {
+                        return [...x, curCategory];
+                    }
+                });
 
-            const response = await fetch(url, {
-                method,
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(curCategory),
-            });
-
-            if (response.ok) {
-                await reload();
                 onExit();
                 Swal.fire({
                     position: "top-end",
@@ -85,6 +100,16 @@ export default function ({ check, category, show, onClose, width, reload }) {
                     showConfirmButton: false,
                     timer: 1000,
                 });
+            } catch (error) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Lưu thất bại",
+                    showConfirmButton: false,
+                    timer: 1000,
+                });
+            } finally {
+                setLoading(false);
             }
         }
     };
@@ -92,6 +117,7 @@ export default function ({ check, category, show, onClose, width, reload }) {
     return (
         <>
             <DialogContainers
+                loading={loading}
                 show={show}
                 onSave={onSave}
                 onClose={onExit}

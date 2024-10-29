@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import style from "./style.module.css";
 export default function FCommonTable({
     rows,
     columns,
@@ -28,7 +27,6 @@ export default function FCommonTable({
                         <TableRow>
                             {columns.map((column) => (
                                 <TableCell
-                                    className={style["text--red"]}
                                     width={column?.width}
                                     key={column.name}
                                 >

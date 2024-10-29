@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "xcc",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "2",
+      "text": "Learn Reduxaas",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "ddea",
+      "text": "kke",
+      "completed": false,
+      "priority": "High"
+    },
+    {
+      "id": "f2b057b5-e567-496c-83ef-8defa2eff30c",
+      "text": "fefds",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "081cfe4c-a079-42ee-a654-14d1d4b47ad1",
+      "text": "ewwe",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "545093d2-0aaf-4cac-a020-2e9f2487577a",
+      "text": "ưdđ",
+      "completed": false,
+      "priority": "Low"
+    },
+    {
+      "id": "9f0079fc-0201-47d1-8d03-d89901df9e0d",
+      "text": "gew",
+      "completed": false,
+      "priority": "Medium"
+    }
+  ]
+}

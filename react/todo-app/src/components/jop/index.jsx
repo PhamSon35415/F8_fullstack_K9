@@ -48,7 +48,15 @@ function ListJob({ states, onDone }) {
                             </IconButton>
                         }
                     >
-                        <ListItemText primary={value.content} />
+                        <ListItemText
+                            sx={{
+                                width: "200px",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                            }}
+                            primary={value.content}
+                        />
                     </ListItem>
                 ))}
             </List>

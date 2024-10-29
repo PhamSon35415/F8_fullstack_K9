@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { v4 } from "uuid";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function WhiteBar() {
     return (
@@ -22,7 +23,15 @@ function WhiteBar() {
     );
 }
 
-export default function ({ show, onClose, width, reload, check, productItem }) {
+export default function ({
+    show,
+    onClose,
+    width,
+    setProducts,
+    check,
+    productItem,
+}) {
+    const [loading, setLoading] = useState(false);
     const [product, setProduct] = useState({
         id: v4(),
         name: "",
@@ -79,26 +88,32 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
         newProduct[e.target.name] = e.target.value;
         setProduct(newProduct);
     };
-
     const onSave = async () => {
-        if (!validate()) {
-            return;
-        }
-        try {
-            const method = check ? "PATCH" : "POST";
+        if (validate()) {
             const url = check
                 ? `https://jlny6y-8080.csb.app/products/${product.id}`
                 : "https://jlny6y-8080.csb.app/products";
-            const response = await fetch(url, {
-                method,
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(product),
-            });
+            const method = check ? "patch" : "post";
+            setLoading(true);
+            try {
+                await axios({
+                    method,
+                    url,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    data: product,
+                });
+                setProducts((x) => {
+                    if (check) {
+                        return x.map((item) =>
+                            item.id === product.id ? product : item
+                        );
+                    } else {
+                        return [...x, product];
+                    }
+                });
 
-            if (response.ok) {
-                await reload();
                 onExit();
                 Swal.fire({
                     position: "top-end",
@@ -107,14 +122,23 @@ export default function ({ show, onClose, width, reload, check, productItem }) {
                     showConfirmButton: false,
                     timer: 1000,
                 });
+            } catch (error) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Lưu thất bại",
+                    showConfirmButton: false,
+                    timer: 1000,
+                });
+            } finally {
+                setLoading(false);
             }
-        } catch (error) {
-            console.error("Error saving product:", error);
         }
     };
 
     return (
         <DialogContainers
+            loading={loading}
             show={show}
             onSave={onSave}
             onClose={onExit}

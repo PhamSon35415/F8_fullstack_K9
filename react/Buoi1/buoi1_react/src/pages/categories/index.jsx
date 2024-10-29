@@ -1,13 +1,18 @@
 import { useState, useEffect, createContext } from "react";
-import { FCommonTable, CategoryDialog } from "../../components";
+import { FCommonTable, CategoryDialog, LoadingSpinner } from "../../components";
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
+import axios from "axios";
+
 export const dataCategory = createContext();
+
 export default function () {
+    const [loading, setLoading] = useState(false);
     const [showDialog, setShowDialog] = useState(false);
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({});
     const [check, setCheck] = useState(false);
+
     const columns = [
         {
             text: "Id",
@@ -26,14 +31,22 @@ export default function () {
             name: "action",
         },
     ];
+
     const getCategories = async () => {
-        const response = await fetch("https://jlny6y-8080.csb.app/categories");
-        const data = await response.json();
-        setCategories(data);
+        setLoading(true);
+        try {
+            const response = await fetch(
+                "https://jlny6y-8080.csb.app/categories"
+            );
+            const data = await response.json();
+            setCategories(data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        } finally {
+            setLoading(false);
+        }
     };
-    const sortCategories = categories.sort((a, b) => {
-        return Number(a.orderNum) - Number(b.orderNum);
-    });
+
     useEffect(() => {
         getCategories();
     }, []);
@@ -43,6 +56,7 @@ export default function () {
         setCheck(true);
         setShowDialog(true);
     };
+
     const onAdd = () => {
         setShowDialog(true);
     };
@@ -66,42 +80,36 @@ export default function () {
 
         if (result.isConfirmed) {
             const url = `https://jlny6y-8080.csb.app/categories/${data.id}`;
-
             try {
-                const productsResponse = await fetch(
+                const productsResponse = await axios.get(
                     "https://jlny6y-8080.csb.app/products"
                 );
-                const products = await productsResponse.json();
+                const products = productsResponse.data;
                 const productsToUpdate = products.filter(
                     (product) => product.categoryId === data.id
                 );
+
                 if (productsToUpdate.length > 0) {
                     for (const product of productsToUpdate) {
-                        const updatedProduct = {
-                            ...product,
-                            categoryId: "0",
-                        };
-                        await fetch(
+                        const updatedProduct = { ...product, categoryId: "0" };
+                        await axios.patch(
                             `https://jlny6y-8080.csb.app/products/${product.id}`,
+                            updatedProduct,
                             {
-                                method: "PATCH",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify(updatedProduct),
+                                headers: { "Content-Type": "application/json" },
                             }
                         );
                     }
                 }
-                const response = await fetch(url, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+
+                const response = await axios.delete(url, {
+                    headers: { "Content-Type": "application/json" },
                 });
 
-                if (response.ok) {
-                    await getCategories();
+                if (response.status === 200) {
+                    setCategories((prevCategories) =>
+                        prevCategories.filter((item) => item.id !== data.id)
+                    );
                     Swal.fire({
                         title: "Deleted!",
                         text: "Ok! Đã Xóa.",
@@ -109,6 +117,7 @@ export default function () {
                     });
                 }
             } catch (error) {
+                console.error("Error:", error);
                 Swal.fire({
                     title: "Lỗi!",
                     text: "Có lỗi xảy ra, vui lòng thử lại!",
@@ -126,21 +135,28 @@ export default function () {
                     Thêm danh mục
                 </Button>
             </div>
-            <FCommonTable
-                maxWidth={1000}
-                columns={columns}
-                rows={sortCategories}
-                onUpdate={onUpdate}
-                onDelete={onDelete}
-            />
-            <CategoryDialog
-                category={category}
-                check={check}
-                show={showDialog}
-                onClose={onCloseDialog}
-                width={600}
-                reload={getCategories}
-            />
+
+            {loading ? (
+                <LoadingSpinner loading={loading} size={50} color="#1976d2" />
+            ) : (
+                <>
+                    <FCommonTable
+                        maxWidth={1000}
+                        columns={columns}
+                        rows={categories}
+                        onUpdate={onUpdate}
+                        onDelete={onDelete}
+                    />
+                    <CategoryDialog
+                        category={category}
+                        check={check}
+                        show={showDialog}
+                        onClose={onCloseDialog}
+                        width={600}
+                        setCategories={setCategories}
+                    />
+                </>
+            )}
         </>
     );
 }
